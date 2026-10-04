@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>First Money Gold | Tamilnadu's #1 Gold Loan Partner</title>
+    <title>First Money Gold | Sell Used Gold for Instant Cash (Top Rate) & Gold Loans</title>
     <link rel="icon" href="images/favicon.png" type="image/png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800;900&display=swap" rel="stylesheet">
@@ -65,8 +65,13 @@
             0%, 100% { box-shadow: 0 0 15px rgba(255, 242, 0, 0.4); }
             50% { box-shadow: 0 0 25px rgba(214, 0, 0, 0.6); }
         }
-        .glow-pulse {
-            animation: goldGlow 3s infinite;
+        /* Modal animation */
+        @keyframes modalIn {
+            0% { transform: scale(0.92); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .animate-modal-in {
+            animation: modalIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
     </style>
     <link rel="stylesheet" href="index.css">
@@ -82,14 +87,15 @@
                     <div class="logo-monogram fmg-impact bg-fmg-yellow text-fmg-red px-2 py-1 rounded mr-3 text-2xl md:text-4xl flex items-center justify-center leading-none">FMG</div>
                     <div class="flex flex-col items-center justify-center">
                         <div class="logo-text fmg-impact text-fmg-yellow text-xl md:text-3xl leading-none mb-0.5 text-center">FIRST MONEY GOLD</div>
-                        <div class="text-[6px] md:text-[8px] text-white font-bold tracking-[0.2em] uppercase opacity-90 text-center" data-en="Tamilnadu's Fastest Gold Loan Company" data-ta="தமிழ்நாட்டின் அதிவேக தங்கக் கடன் நிறுவனம்">Tamilnadu's Fastest Gold Loan Company</div>
+                        <div class="text-[6px] md:text-[8px] text-white font-bold tracking-[0.2em] uppercase opacity-90 text-center" data-en="Tamilnadu's #1 Instant Used Gold Buyers & Loans" data-ta="தமிழ்நாட்டின் #1 பழைய நகை கொள்முதல் & தங்கக் கடன் நிறுவனம்">Tamilnadu's #1 Instant Used Gold Buyers & Loans</div>
                     </div>
                 </a>
 
                 <!-- Desktop Nav Links -->
-                <div class="hidden xl:flex items-center gap-6">
+                <div class="hidden xl:flex items-center gap-5">
                     <a href="#home" class="text-[11px] font-black uppercase tracking-widest text-slate-600 hover:text-fmg-red transition-all" data-en="Home" data-ta="முகப்பு">Home</a>
-                    <a href="#calculator" class="text-[11px] font-black uppercase tracking-widest text-slate-600 hover:text-fmg-red transition-all" data-en="Calculator" data-ta="கணிப்பான்">Calculator</a>
+                    <a href="#calculator" class="hero-sell-cta text-[11px] font-black uppercase tracking-widest text-fmg-red hover:text-red-700 transition-all flex items-center gap-1" data-en="🏷️ Sell Old Gold" data-ta="🏷️ பழைய நகை விற்க">🏷️ Sell Old Gold</a>
+                    <a href="#calculator" class="hero-loan-cta text-[11px] font-black uppercase tracking-widest text-slate-600 hover:text-fmg-red transition-all" data-en="Gold Loan" data-ta="தங்கக் கடன்">Gold Loan</a>
                     <a href="#release-gold" class="text-[11px] font-black uppercase tracking-widest text-slate-600 hover:text-fmg-red transition-all" data-en="Release Gold" data-ta="அடகு மீட்பு">Release Gold</a>
                     <a href="#callback" class="text-[11px] font-black uppercase tracking-widest text-slate-600 hover:text-fmg-red transition-all" data-en="Call Back" data-ta="முன்பதிவு">Call Back</a>
                     <a href="#services" class="text-[11px] font-black uppercase tracking-widest text-slate-600 hover:text-fmg-red transition-all" data-en="Services" data-ta="சேவைகள்">Services</a>
@@ -106,13 +112,13 @@
                         <span id="current-lang-text">தமிழ்</span>
                     </button>
 
-                    <a href="https://wa.me/916380630242" target="_blank" class="p-2 text-[#25D366] transition-transform hover:scale-110" title="WhatsApp Us">
+                    <a id="nav-wa-icon" href="javascript:void(0)" class="p-2 text-[#25D366] transition-transform hover:scale-110 cursor-pointer" title="WhatsApp Us">
                         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 1 1-7.6-11.7c.6 0 1.1.1 1.7.3l4.6-1.5-1.5 4.6c.2.6.3 1.2.3 1.8Z"/><path d="M8.5 9.5a2.5 2.5 0 0 0 0 5c1 0 1.5-.5 2-1s.5-1 2-1 1 .5 2 1.5"/></svg>
                     </a>
                     <a href="tel:+916380630242" class="p-2 text-fmg-red transition-transform hover:scale-110" title="Call Us">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                     </a>
-                    <a href="https://wa.me/916380630242" target="_blank" class="hidden sm:block px-5 py-2.5 bg-[#25D366] text-white rounded-xl text-[10px] fmg-impact shadow-md shadow-green-500/20 whitespace-nowrap hover:bg-[#20ba5a] transition-colors" data-en="GET STARTED" data-ta="தொடங்கவும்">GET STARTED</a>
+                    <a id="nav-get-started-btn" href="#calculator" class="hero-sell-cta hidden sm:block px-4 py-2.5 bg-fmg-red text-white rounded-xl text-[10px] fmg-impact shadow-md shadow-red-500/20 whitespace-nowrap hover:bg-red-700 transition-colors cursor-pointer" data-en="🏷️ SELL OLD GOLD" data-ta="🏷️ பழைய நகை விற்க">🏷️ SELL OLD GOLD</a>
                     <button id="menu-toggle" class="xl:hidden p-2 text-slate-700 focus:outline-none">
                         <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
                         <svg id="close-icon" class="hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" x2="6" y1="6" y2="18"/><line x1="6" x2="18" y1="6" y2="18"/></svg>
@@ -124,70 +130,72 @@
         <!-- Mobile Menu Drawer -->
         <div id="mobile-menu" class="xl:hidden absolute top-20 left-4 right-4 bg-white rounded-2xl shadow-2xl border border-slate-100 overflow-hidden flex flex-col p-6 space-y-3 z-50">
             <a href="#home" class="mobile-link text-sm fmg-impact text-slate-800 hover:text-fmg-red py-2 border-b border-slate-50" data-en="Home" data-ta="முகப்பு">Home</a>
-            <a href="#calculator" class="mobile-link text-sm fmg-impact text-slate-800 hover:text-fmg-red py-2 border-b border-slate-50" data-en="Calculator" data-ta="கணிப்பான்">Calculator</a>
+            <a href="#calculator" class="mobile-link hero-sell-cta text-sm fmg-impact text-fmg-red hover:text-red-700 py-2 border-b border-slate-50" data-en="🏷️ Sell Old Gold (Instant Cash)" data-ta="🏷️ பழைய நகை விற்பனை (உடனடி ரொக்கம்)">🏷️ Sell Old Gold (Instant Cash)</a>
+            <a href="#calculator" class="mobile-link hero-loan-cta text-sm fmg-impact text-slate-800 hover:text-fmg-red py-2 border-b border-slate-50" data-en="💰 Gold Loan (0.99% Interest)" data-ta="💰 தங்கக் கடன் (0.99% வட்டி)">💰 Gold Loan (0.99% Interest)</a>
             <a href="#release-gold" class="mobile-link text-sm fmg-impact text-slate-800 hover:text-fmg-red py-2 border-b border-slate-50" data-en="Release Pledged Gold" data-ta="அடகு நகைகள் மீட்பு">Release Pledged Gold</a>
             <a href="#callback" class="mobile-link text-sm fmg-impact text-slate-800 hover:text-fmg-red py-2 border-b border-slate-50" data-en="Instant Call Back" data-ta="உடனடி முன்பதிவு">Instant Call Back</a>
             <a href="#services" class="mobile-link text-sm fmg-impact text-slate-800 hover:text-fmg-red py-2 border-b border-slate-50" data-en="Services" data-ta="சேவைகள்">Services</a>
-            <a href="#branches" class="mobile-link text-sm fmg-impact text-slate-800 hover:text-fmg-red py-2 border-b border-slate-50" data-en="Branch Locator" data-ta="எங்கள் கிளைகள்">Branch Locator</a>
+            <a href="#branches" class="mobile-link text-sm fmg-impact text-slate-800 hover:text-fmg-red py-2 border-b border-slate-50" data-en="Branch Locator" data-ta="எங்கள் கிலைகள்">Branch Locator</a>
             <a href="#franchise" class="mobile-link text-sm fmg-impact text-slate-800 hover:text-fmg-red py-2 border-b border-slate-50" data-en="Partner Franchise" data-ta="கிளை உரிமை (Franchise)">Partner Franchise</a>
             <a href="#faq" class="mobile-link text-sm fmg-impact text-slate-800 hover:text-fmg-red py-2 border-b border-slate-50" data-en="FAQ" data-ta="அடிக்கடி கேட்கப்படும் கேள்விகள்">FAQ</a>
             <a href="#contact" class="mobile-link text-sm fmg-impact text-slate-800 hover:text-fmg-red py-2" data-en="Connect" data-ta="தொடர்புக்கு">Connect</a>
         </div>
     </header>
 
-    <!-- Live Gold Rate Ticker Bar -->
+    <!-- Live Gold Rate Ticker Bar with Highlighted Used Gold Buying Rate -->
     <div class="bg-slate-950 text-white border-b border-slate-800 pt-20 pb-2.5 px-4 relative z-40 shadow-inner">
         <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2.5 text-xs">
             <div class="flex items-center gap-2 font-black uppercase tracking-wider text-fmg-yellow">
                 <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse inline-block"></span>
-                <span data-en="Today's Live Gold Rates (Chennai / Tamil Nadu)" data-ta="இன்றைய நேரலை தங்கம் & வெள்ளி விலை (சென்னை / தமிழ்நாடு)">Today's Live Gold Rates (Chennai / Tamil Nadu)</span>
+                <span data-en="Today's Live Rates (Chennai / Tamil Nadu)" data-ta="இன்றைய நேரலை தங்கம் விலை (சென்னை / தமிழ்நாடு)">Today's Live Rates (Chennai / Tamil Nadu)</span>
             </div>
-            <div class="flex items-center flex-wrap gap-3 sm:gap-6 font-semibold text-slate-200">
-                <div class="flex items-center gap-1.5">
-                    <span class="text-slate-400 font-normal">24K Pure:</span>
-                    <span class="font-bold text-white">₹14,918/g</span>
-                    <span class="text-[10px] text-fmg-yellow bg-white/10 px-1.5 py-0.5 rounded font-mono">₹1,19,344/Pavan</span>
+            <div class="flex items-center flex-wrap gap-2.5 sm:gap-5 font-semibold text-slate-200">
+                <!-- Highlighted Used Gold Buying Rate -->
+                <div class="flex items-center gap-1.5 bg-amber-400/20 border border-amber-400/40 px-2.5 py-1 rounded-lg">
+                    <span class="text-amber-300 font-black" data-en="🔥 Used Gold Buy:" data-ta="🔥 பழைய நகை கொள்முதல்:">🔥 Used Gold Buy:</span>
+                    <span class="font-black text-amber-300">₹13,400/g</span>
+                    <span class="text-[10px] text-black bg-amber-400 px-1.5 py-0.2 rounded font-black font-mono">98% CASH</span>
                 </div>
                 <div class="flex items-center gap-1.5">
                     <span class="text-slate-400 font-normal">22K 916:</span>
                     <span class="font-bold text-amber-400">₹13,675/g</span>
-                    <span class="text-[10px] text-amber-300 bg-amber-400/20 px-1.5 py-0.5 rounded font-mono">₹1,09,400/Pavan</span>
+                    <span class="text-[10px] text-amber-300 bg-white/10 px-1.5 py-0.5 rounded font-mono">₹1,09,400/Pavan</span>
                 </div>
                 <div class="flex items-center gap-1.5 hidden sm:flex">
-                    <span class="text-slate-400 font-normal">18K:</span>
-                    <span class="font-bold text-white">₹11,235/g</span>
-                    <span class="text-[10px] text-slate-400 bg-white/10 px-1.5 py-0.5 rounded font-mono">₹89,880/Pavan</span>
+                    <span class="text-slate-400 font-normal">24K Pure:</span>
+                    <span class="font-bold text-white">₹14,918/g</span>
                 </div>
                 <div class="flex items-center gap-1.5 hidden md:flex">
                     <span class="text-slate-400 font-normal">Silver:</span>
                     <span class="font-bold text-slate-300">₹235/g</span>
-                    <span class="text-[10px] text-slate-400 bg-white/10 px-1.5 py-0.5 rounded font-mono">₹2,35,000/Kg</span>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Hero Section -->
+    <!-- Hero Section (60% Used Gold Selling / 40% Gold Loan) -->
     <section id="home" class="relative pt-6 pb-12 px-4 md:px-6 flex flex-col justify-center items-center text-center bg-white overflow-hidden scroll-mt-header">
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full opacity-[0.03] pointer-events-none select-none overflow-hidden">
             <h1 class="text-[35vw] md:text-[22vw] fmg-impact text-fmg-red whitespace-nowrap">FMG</h1>
         </div>
-        <div class="max-w-6xl mx-auto relative z-10 space-y-5">
+        <div class="max-w-6xl mx-auto relative z-10 space-y-4">
             <div class="flex flex-col items-center">
                 <!-- Hero Banner Logo Box -->
-                <div class="inline-flex items-center bg-fmg-red p-3 sm:p-4 md:p-5 pr-8 md:pr-14 rounded-2xl shadow-xl scale-100 md:scale-105 mb-3">
+                <div class="inline-flex items-center bg-fmg-red p-3 sm:p-4 md:p-5 pr-8 md:pr-14 rounded-2xl shadow-xl scale-100 md:scale-105 mb-2">
                     <div class="bg-fmg-yellow text-fmg-red px-3.5 py-1.5 rounded-sm text-3xl md:text-6xl fmg-impact flex items-center justify-center leading-none">FMG</div>
                     <div class="ml-3 md:ml-6 flex flex-col items-center">
                         <div class="text-fmg-yellow text-2xl md:text-5xl fmg-impact leading-none text-center">FIRST MONEY GOLD</div>
-                        <div class="text-white text-[8px] md:text-[9px] font-bold tracking-[0.25em] uppercase mt-1 text-center" data-en="Tamilnadu's Fastest Gold Loan Company" data-ta="தமிழ்நாட்டின் அதிவேக தங்கக் கடன் நிறுவனம்">Tamilnadu's Fastest Gold Loan Company</div>
+                        <div class="text-white text-[8px] md:text-[9px] font-bold tracking-[0.25em] uppercase mt-1 text-center" data-en="Tamilnadu's #1 Instant Used Gold Buyers & Loans" data-ta="தமிழ்நாட்டின் #1 பழைய நகை கொள்முதல் & தங்கக் கடன் நிறுவனம்">Tamilnadu's #1 Instant Used Gold Buyers & Loans</div>
                     </div>
                 </div>
-                <h2 class="text-fmg-red text-xl sm:text-2xl md:text-4xl fmg-impact leading-tight mt-2" data-en="Tamil Nadu's Trusted<br /> Gold Financial Partner." data-ta="தமிழ்நாட்டின் நம்பகமான<br /> தங்க நிதி பங்குதாரர்.">Tamil Nadu's Trusted<br /> Gold Financial Partner.</h2>
+                <!-- 60% Used Gold / 40% Gold Loan Focused Headline -->
+                <h2 class="text-slate-950 text-xl sm:text-2xl md:text-4xl fmg-impact leading-tight mt-2" data-en="Sell Used Gold For Instant Cash <span class='text-fmg-red'>(98% Rate)</span><br class='hidden sm:inline' /> & Fast Gold Loans." data-ta="பழைய தங்க நகைக்கு உடனடி ரொக்கம் <span class='text-fmg-red'>(98% மதிப்பு)</span><br class='hidden sm:inline' /> & உடனடி தங்கக் கடன்.">Sell Used Gold For Instant Cash <span class="text-fmg-red">(98% Rate)</span><br class="hidden sm:inline" /> & Fast Gold Loans.</h2>
             </div>
-            <p class="text-sm sm:text-base md:text-lg text-slate-600 max-w-2xl mx-auto font-semibold" data-en="Instant gold loans, transparent pricing, and trusted support." data-ta="உடனடி தங்கக் கடன், தெளிவான வட்டி விகிதம் மற்றும் நம்பகமான சேவை.">Instant gold loans, transparent pricing, and trusted support.</p>
+            <!-- Subtitle -->
+            <p class="text-xs sm:text-sm md:text-base text-slate-600 max-w-2xl mx-auto font-semibold leading-relaxed" data-en="Get top market cash valuation for your old, unused, or broken gold jewelry in 15 minutes, or get transparent gold loans starting from 0.99% monthly interest." data-ta="உங்கள் பழைய மற்றும் உடைந்த நகைகளுக்கு 98% உடனடி ரொக்கப் பணம் பெறுங்கள், அல்லது 0.99% குறைந்த மாத வட்டியில் தங்கக் கடன் பெறுங்கள்.">Get top market cash valuation for your old, unused, or broken gold jewelry in 15 minutes, or get transparent gold loans starting from 0.99% monthly interest.</p>
             
             <!-- Banner Image Section -->
-            <div class="w-full max-w-4xl mx-auto mt-4 mb-3 relative group px-2">
+            <div class="w-full max-w-4xl mx-auto mt-2 mb-2 relative group px-2">
                 <div class="absolute inset-0 bg-gradient-to-r from-fmg-red/20 to-fmg-yellow/20 rounded-3xl transform rotate-1 scale-105 blur-lg opacity-70"></div>
                 <img 
                     src="Banner_Image.png" 
@@ -197,23 +205,29 @@
                 >
                 <div class="absolute bottom-4 left-1/2 -translate-x-1/2 bg-white/95 backdrop-blur px-5 py-1.5 rounded-full shadow-lg border border-slate-100 flex items-center gap-2 whitespace-nowrap">
                     <span class="text-fmg-red hidden sm:inline">★★★★★</span>
-                    <span class="text-[11px] font-bold uppercase tracking-widest text-slate-800" data-en="Trusted by 1 Lakh+ Families" data-ta="1 லட்சத்திற்கும் மேற்பட்ட குடும்பங்களின் நம்பிக்கை">Trusted by 1 Lakh+ Families</span>
+                    <span class="text-[11px] font-bold uppercase tracking-widest text-slate-800" data-en="98% Cash Payout • 15-Min Bank/UPI Disbursal" data-ta="98% நேரடி ரொக்கம் • 15 நிமிடங்களில் பணம்">98% Cash Payout • 15-Min Bank/UPI Disbursal</span>
                 </div>
             </div>
 
-            <div class="flex flex-wrap justify-center gap-3 pt-1">
-                <a href="#calculator" class="px-6 py-3.5 bg-fmg-red text-white rounded-xl text-xs fmg-impact shadow-xl hover:scale-105 transition-all flex items-center gap-2" data-en="⚡ CALCULATE GOLD LOAN" data-ta="⚡ தங்கக் கடன் கணக்கிடுங்கள்">
-                    <span>⚡ CALCULATE GOLD LOAN</span>
+            <!-- Hero Action Buttons (60% Used Gold Selling as Primary #1) -->
+            <div class="flex flex-wrap justify-center gap-2.5 pt-1">
+                <a href="#calculator" class="hero-sell-cta px-6 py-3.5 bg-fmg-red text-white rounded-xl text-xs fmg-impact shadow-xl hover:scale-105 hover:bg-red-700 transition-all flex items-center gap-2" data-en="🏷️ SELL OLD GOLD (98% CASH)" data-ta="🏷️ பழைய நகை விற்க (உடனடி பணம்)">
+                    <span>🏷️ SELL OLD GOLD (98% CASH)</span>
                 </a>
-                <a href="#release-gold" class="px-6 py-3.5 bg-slate-900 text-white rounded-xl text-xs fmg-impact shadow-xl hover:bg-black transition-all flex items-center gap-2" data-en="🔓 RELEASE PLEDGED GOLD" data-ta="🔓 அடகு நகைகள் மீட்பு">
+                <a href="#calculator" class="hero-loan-cta px-6 py-3.5 bg-slate-900 text-white rounded-xl text-xs fmg-impact shadow-xl hover:bg-black transition-all flex items-center gap-2" data-en="💰 GET GOLD LOAN (0.99% INT)" data-ta="💰 தங்கக் கடன் பெற (0.99% வட்டி)">
+                    <span>💰 GET GOLD LOAN (0.99% INT)</span>
+                </a>
+                <a href="#release-gold" class="px-5 py-3.5 bg-slate-800 text-white rounded-xl text-xs fmg-impact shadow-xl hover:bg-slate-950 transition-all flex items-center gap-2" data-en="🔓 RELEASE PLEDGED GOLD" data-ta="🔓 அடகு நகைகள் மீட்பு">
                     <span>🔓 RELEASE PLEDGED GOLD</span>
                 </a>
-                <a href="https://wa.me/916380630242" target="_blank" class="px-6 py-3.5 bg-[#25D366] text-white rounded-xl text-xs fmg-impact hover:bg-[#20ba5a] transition-all shadow-lg shadow-green-500/10" data-en="CONTACT ON WHATSAPP" data-ta="வாட்ஸ்அப்பில் தொடர்புகொள்ள">CONTACT ON WHATSAPP</a>
+                <a id="hero-wa-btn" href="javascript:void(0)" class="px-5 py-3.5 bg-[#25D366] text-white rounded-xl text-xs fmg-impact hover:bg-[#20ba5a] transition-all shadow-lg shadow-green-500/10 cursor-pointer flex items-center gap-1.5" data-en="💬 GET INSTANT QUOTE" data-ta="💬 வாட்ஸ்அப் மதிப்பீடு">
+                    <span>💬 GET INSTANT QUOTE</span>
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Interactive Gold Loan Calculator Section -->
+    <!-- Interactive Gold Loan & Sell Old Gold Calculator Section (Defaulted to Sell Old Gold) -->
     <section id="calculator" class="py-12 md:py-16 bg-gradient-to-b from-slate-50 via-white to-slate-50 scroll-mt-header relative overflow-hidden border-t border-slate-100">
         <div class="absolute top-0 right-0 w-96 h-96 bg-fmg-yellow/10 rounded-full blur-3xl pointer-events-none"></div>
         <div class="absolute bottom-0 left-0 w-96 h-96 bg-fmg-red/5 rounded-full blur-3xl pointer-events-none"></div>
@@ -221,23 +235,23 @@
         <div class="max-w-7xl mx-auto px-4 md:px-6 relative z-10">
             <div class="text-center max-w-3xl mx-auto mb-8 md:mb-10">
                 <span class="text-[10px] font-black uppercase tracking-[0.3em] text-fmg-red bg-fmg-red/10 px-3.5 py-1 rounded-full border border-fmg-red/20 inline-block mb-2.5" data-en="Instant Valuation Engine" data-ta="உடனடி மதிப்பீட்டுக் கணிப்பான்">Instant Valuation Engine</span>
-                <h2 class="text-2xl sm:text-4xl md:text-5xl fmg-impact text-black leading-tight" data-en="Gold Loan & Cash <span class='text-fmg-red'>Calculator.</span>" data-ta="தங்கக் கடன் & ரொக்க <span class='text-fmg-red'>கணிப்பான்.</span>">Gold Loan & Cash <span class="text-fmg-red">Calculator.</span></h2>
-                <p class="text-slate-600 font-semibold text-xs sm:text-sm md:text-base mt-2" data-en="Calculate instant cash loan eligibility and estimated payout for your gold ornaments in seconds." data-ta="உங்கள் தங்க நகைகளுக்கு கிடைக்கும் அதிகபட்ச கடன் மற்றும் உடனடி ரொக்கத் தொகையை நொடிகளில் கணக்கிடுங்கள்.">Calculate instant cash loan eligibility and estimated payout for your gold ornaments in seconds.</p>
+                <h2 class="text-2xl sm:text-4xl md:text-5xl fmg-impact text-black leading-tight" data-en="Sell Old Gold & Loan <span class='text-fmg-red'>Calculator.</span>" data-ta="பழைய நகை & தங்கக் கடன் <span class='text-fmg-red'>கணிப்பான்.</span>">Sell Old Gold & Loan <span class="text-fmg-red">Calculator.</span></h2>
+                <p class="text-slate-600 font-semibold text-xs sm:text-sm md:text-base mt-2" data-en="Calculate instant cash payout for selling your used gold at 98% valuation, or check fast gold loan eligibility in seconds." data-ta="உங்கள் பழைய தங்க நகைக்கு கிடைக்கும் 98% நேரடி ரொக்கத் தொகையை அல்லது உடனடி தங்கக் கடன் தொகையை நொடிகளில் கணக்கிடுங்கள்.">Calculate instant cash payout for selling your used gold at 98% valuation, or check fast gold loan eligibility in seconds.</p>
             </div>
 
             <div class="grid lg:grid-cols-12 gap-6 items-stretch">
                 <!-- Calculator Controls (Left Column) -->
                 <div class="lg:col-span-7 bg-white rounded-2xl p-5 sm:p-7 border border-slate-200/80 shadow-lg space-y-5 flex flex-col justify-between">
                     
-                    <!-- 1. Calculation Mode (Loan vs Sell) -->
+                    <!-- 1. Calculation Mode (Sell Old Gold #1 vs Gold Loan #2) -->
                     <div>
                         <label class="block text-xs font-black uppercase tracking-wider text-slate-500 mb-2" data-en="Select Service Type" data-ta="சேவைத் தேர்வை மாற்றவும்">Select Service Type</label>
                         <div class="grid grid-cols-2 gap-2 p-1 bg-slate-100 rounded-xl">
-                            <button type="button" id="calc-mode-loan" class="calc-mode-btn py-2.5 px-3 rounded-lg text-xs md:text-sm font-black transition-all bg-fmg-red text-white shadow-md" data-en="💰 Gold Loan (Pledge)" data-ta="💰 தங்கக் கடன் (அடகு)">
-                                💰 Gold Loan (Pledge)
+                            <button type="button" id="calc-mode-sell" class="calc-mode-btn py-2.5 px-3 rounded-lg text-xs md:text-sm font-black transition-all bg-fmg-red text-white shadow-md" data-en="🏷️ Sell Old Gold (98% Cash)" data-ta="🏷️ பழைய நகை விற்பனை (98%)">
+                                🏷️ Sell Old Gold (98% Cash)
                             </button>
-                            <button type="button" id="calc-mode-sell" class="calc-mode-btn py-2.5 px-3 rounded-lg text-xs md:text-sm font-black transition-all bg-transparent text-slate-600 hover:text-black" data-en="🏷️ Sell Old Gold" data-ta="🏷️ பழைய நகை விற்பனை">
-                                🏷️ Sell Old Gold
+                            <button type="button" id="calc-mode-loan" class="calc-mode-btn py-2.5 px-3 rounded-lg text-xs md:text-sm font-black transition-all bg-transparent text-slate-600 hover:text-black" data-en="💰 Gold Loan (0.99% Int)" data-ta="💰 தங்கக் கடன் (அடகு)">
+                                💰 Gold Loan (0.99% Int)
                             </button>
                         </div>
                     </div>
@@ -302,7 +316,7 @@
                         </div>
                         <div class="p-1">
                             <span class="block text-sm">⏱️</span>
-                            <span class="text-[10px] font-bold text-slate-500" data-en="15-Min Payout" data-ta="15 நிமிடங்களில் பணம்">15-Min Payout</span>
+                            <span class="text-[10px] font-bold text-slate-500" data-en="15-Min Cash Payout" data-ta="15 நிமிடங்களில் பணம்">15-Min Cash Payout</span>
                         </div>
                         <div class="p-1">
                             <span class="block text-sm">🔒</span>
@@ -311,7 +325,7 @@
                     </div>
                 </div>
 
-                <!-- Calculation Result Card (Right Column) -->
+                <!-- Calculation Result Card (Right Column) - Defaulted to Used Gold 98% Cash Payout -->
                 <div class="lg:col-span-5 bg-gradient-to-br from-slate-950 via-slate-900 to-black text-white rounded-2xl p-5 sm:p-7 shadow-xl flex flex-col justify-between border border-slate-800 relative overflow-hidden">
                     <div class="absolute -top-16 -right-16 w-48 h-48 bg-fmg-red/20 rounded-full blur-2xl"></div>
                     <div class="absolute -bottom-16 -left-16 w-48 h-48 bg-fmg-yellow/10 rounded-full blur-2xl"></div>
@@ -320,22 +334,22 @@
                         <div class="flex items-center justify-between pb-4 border-b border-white/10">
                             <div>
                                 <span class="text-[10px] font-black uppercase tracking-widest text-fmg-yellow" data-en="Valuation Summary" data-ta="மதிப்பீட்டு விவரம்">Valuation Summary</span>
-                                <h3 id="result-title" class="text-lg fmg-impact text-white mt-0.5" data-en="Instant Gold Loan Estimate" data-ta="உடனடி தங்கக் கடன் மதிப்பீடு">Instant Gold Loan Estimate</h3>
+                                <h3 id="result-title" class="text-lg fmg-impact text-white mt-0.5" data-en="Instant Old Gold Valuation" data-ta="பழைய நகை நேரடி விற்பனை மதிப்பீடு">Instant Old Gold Valuation</h3>
                             </div>
-                            <span class="px-2.5 py-0.5 bg-white/10 text-emerald-400 text-[11px] font-bold rounded-full flex items-center gap-1">
-                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span> Live Rate
+                            <span class="px-2.5 py-0.5 bg-white/10 text-amber-400 text-[11px] font-bold rounded-full flex items-center gap-1">
+                                <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-ping"></span> Live 98% Rate
                             </span>
                         </div>
 
-                        <!-- Main Loan Amount Output -->
+                        <!-- Main Cash Output (Defaulted to 98% of 16g 22K = 2,14,424) -->
                         <div class="my-5 text-center bg-white/5 p-4 sm:p-5 rounded-xl border border-white/10">
-                            <span id="output-label" class="block text-[11px] font-bold uppercase tracking-widest text-slate-400 mb-1" data-en="Max Loan Cash In Hand" data-ta="கையில் கிடைக்கும் கடன் தொகை">Max Loan Cash In Hand</span>
+                            <span id="output-label" class="block text-[11px] font-bold uppercase tracking-widest text-slate-400 mb-1" data-en="Direct Cash Payout (98% Valuation)" data-ta="கையில் கிடைக்கும் நேரடி ரொக்கம்">Direct Cash Payout (98% Valuation)</span>
                             <div class="flex items-center justify-center gap-1">
                                 <span class="text-xl sm:text-2xl font-bold text-fmg-yellow">₹</span>
-                                <span id="calc-loan-amount" class="text-3xl sm:text-5xl fmg-impact text-white tracking-tight">1,85,980</span>
+                                <span id="calc-loan-amount" class="text-3xl sm:text-5xl fmg-impact text-white tracking-tight">2,14,424</span>
                             </div>
-                            <span id="calc-ltv-badge" class="inline-block mt-1.5 text-[10px] font-bold text-emerald-400 bg-emerald-500/10 px-2.5 py-0.5 rounded-full" data-en="Up to 85% - 90% Market LTV" data-ta="சந்தை மதிப்பில் 85% - 90% வரை">
-                                Up to 85% - 90% Market LTV
+                            <span id="calc-ltv-badge" class="inline-block mt-1.5 text-[10px] font-bold text-amber-400 bg-amber-500/10 px-2.5 py-0.5 rounded-full" data-en="🔥 Top Market Cash Rate (98%)" data-ta="🔥 98% உயர்ந்த சந்தை ரொக்க மதிப்பு">
+                                🔥 Top Market Cash Rate (98%)
                             </span>
                         </div>
 
@@ -345,23 +359,23 @@
                                 <span data-en="Total Market Value:" data-ta="மொத்த சந்தை மதிப்பு:">Total Market Value:</span>
                                 <span id="calc-market-val" class="font-bold text-white">₹2,18,800</span>
                             </div>
-                            <div id="calc-interest-row" class="flex justify-between py-1.5 border-b border-white/10 text-slate-300">
+                            <div id="calc-interest-row" class="hidden justify-between py-1.5 border-b border-white/10 text-slate-300">
                                 <span data-en="Monthly Interest (From 0.99%):" data-ta="மாத வட்டி (0.99% முதல்):">Monthly Interest (From 0.99%):</span>
                                 <span id="calc-monthly-interest" class="font-bold text-fmg-yellow">₹1,841 / month</span>
                             </div>
                             <div class="flex justify-between py-1.5 border-b border-white/10 text-slate-300">
-                                <span data-en="Processing & Appraisal:" data-ta="ஆவண & மதிப்பீட்டுக் கட்டணம்:">Processing & Appraisal:</span>
+                                <span data-en="Purity Scan (German XRF):" data-ta="ஜெர்மன் XRF சோதனை:">Purity Scan (German XRF):</span>
                                 <span class="font-bold text-emerald-400" data-en="FREE (₹0)" data-ta="இலவசம் (₹0)">FREE (₹0)</span>
                             </div>
                             <div class="flex justify-between py-1.5 text-slate-300">
-                                <span data-en="Payout Speed:" data-ta="பணம் வழங்கும் நேரம்:">Payout Speed:</span>
-                                <span class="font-bold text-emerald-400" data-en="Instant (15 Mins)" data-ta="15 நிமிடங்களில்">Instant (15 Mins)</span>
+                                <span data-en="Payout Mode & Speed:" data-ta="பணம் வழங்கும் முறை & வேகம்:">Payout Mode & Speed:</span>
+                                <span class="font-bold text-emerald-400" data-en="Instant Cash/UPI (15 Mins)" data-ta="உடனடி ரொக்கம்/UPI (15 நிமி)">Instant Cash/UPI (15 Mins)</span>
                             </div>
                         </div>
 
                         <!-- Action Button inside Calculator -->
                         <a id="calc-whatsapp-btn" href="https://wa.me/916380630242" target="_blank" class="w-full py-3 px-4 bg-[#25D366] hover:bg-[#20ba5a] text-white text-xs sm:text-sm font-black rounded-xl text-center flex items-center justify-center gap-2 shadow-lg shadow-green-500/20 transition-all">
-                            <span>GET THIS LOAN ON WHATSAPP</span>
+                            <span>SELL THIS GOLD ON WHATSAPP</span>
                         </a>
                     </div>
                 </div>
@@ -435,9 +449,9 @@
                         <div>
                             <label class="block text-[11px] font-black uppercase tracking-wider text-slate-600 mb-1" data-en="Required Service" data-ta="தேவையான சேவை">Required Service</label>
                             <select id="lead-service" class="w-full px-3.5 py-2.5 bg-slate-50 border-2 border-slate-200 rounded-xl font-bold text-xs sm:text-sm focus:border-fmg-red outline-none transition-all">
-                                <option value="Instant Gold Loan">💰 Instant Gold Loan (Highest LTV)</option>
+                                <option value="Sell Old Gold" selected>🏷️ Sell Old Gold for Instant Cash (Highest 98% Payout)</option>
+                                <option value="Instant Gold Loan">💰 Instant Gold Loan (From 0.99% Interest)</option>
                                 <option value="Release Pledged Gold">🔓 Release Pledged Gold from Other Banks / Pawnshops</option>
-                                <option value="Sell Old Gold">🏷️ Sell Old Gold for Instant Cash</option>
                                 <option value="Franchise Partnership">🤝 Franchise Partnership Inquiry</option>
                             </select>
                         </div>
@@ -521,7 +535,7 @@
                     <p class="text-red-100 text-xs sm:text-sm font-semibold" data-en="We provide doorstep support and immediate funds clearance across Tamil Nadu." data-ta="தமிழ்நாடு முழுவதும் உடனடி நிதி மற்றும் கிளை ஆதரவை வழங்குகிறோம்.">We provide doorstep support and immediate funds clearance across Tamil Nadu.</p>
                 </div>
                 <div class="flex flex-wrap gap-2.5 shrink-0 justify-center">
-                    <a href="https://wa.me/916380630242?text=Hi%20First%20Money%20Gold,%20I%20want%20to%20release%20my%20pledged%20gold%20from%20another%20bank/pawnshop.%20Please%20guide%20me." target="_blank" class="px-5 py-3 bg-white text-fmg-red rounded-xl fmg-impact text-xs shadow-lg hover:bg-fmg-yellow hover:text-black transition-all" data-en="RELEASE GOLD VIA WHATSAPP" data-ta="வாட்ஸ்அப்பில் அடகு மீட்க">
+                    <a id="release-gold-wa-btn" href="javascript:void(0)" class="px-5 py-3 bg-white text-fmg-red rounded-xl fmg-impact text-xs shadow-lg hover:bg-fmg-yellow hover:text-black transition-all cursor-pointer" data-en="RELEASE GOLD VIA WHATSAPP" data-ta="வாட்ஸ்அப்பில் அடகு மீட்க">
                         RELEASE GOLD VIA WHATSAPP
                     </a>
                     <a href="tel:+916380630242" class="px-5 py-3 bg-black/40 border border-white/30 text-white rounded-xl fmg-impact text-xs hover:bg-black transition-all">
@@ -532,28 +546,32 @@
         </div>
     </section>
 
-    <!-- Services Section -->
+    <!-- Services & Strengths Section (60% Used Gold / 40% Gold Loan) -->
     <section id="services" class="py-10 md:py-14 bg-slate-50 scroll-mt-header">
         <div class="max-w-7xl mx-auto px-4 md:px-6">
             <div class="text-center mb-8 md:mb-10">
-                <span class="text-[10px] font-black uppercase tracking-[0.3em] text-fmg-red" data-en="What we offer" data-ta="எங்கள் சிறப்பம்சங்கள்">What we offer</span>
-                <h2 class="text-2xl sm:text-4xl md:text-5xl fmg-impact text-black mt-1 leading-tight" data-en="Our <span class='text-fmg-red'>Strengths.</span>" data-ta="எங்கள் <span class='text-fmg-red'>பலங்கள்.</span>">Our <span class="text-fmg-red">Strengths.</span></h2>
+                <span class="text-[10px] font-black uppercase tracking-[0.3em] text-fmg-red" data-en="What We Offer" data-ta="எங்கள் சிறப்பம்சங்கள்">What We Offer</span>
+                <h2 class="text-2xl sm:text-4xl md:text-5xl fmg-impact text-black mt-1 leading-tight" data-en="Core <span class='text-fmg-red'>Services.</span>" data-ta="எங்கள் முக்கிய <span class='text-fmg-red'>சேவைகள்.</span>">Core <span class="text-fmg-red">Services.</span></h2>
             </div>
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
-                <div class="p-5 sm:p-6 bg-white rounded-2xl border border-slate-200 hover:border-fmg-red transition-all group shadow-sm">
-                    <div class="text-3xl mb-3 grayscale group-hover:grayscale-0 transition-all">⚡</div>
-                    <h3 class="text-lg fmg-impact mb-1.5" data-en="Highest LTV" data-ta="அதிகபட்ச கடன் மதிப்பு">Highest LTV</h3>
-                    <p class="text-slate-500 font-semibold text-xs sm:text-sm leading-relaxed" data-en="Get maximum value of your gold's market value instantly. Maximum liquidity for your assets." data-ta="உங்கள் தங்கத்தின் தற்போதைய சந்தை மதிப்பில் அதிகபட்ச கடன் தொகையை உடனடி ரொக்கமாகப் பெறுங்கள்.">Get maximum value of your gold's market value instantly. Maximum liquidity for your assets.</p>
+                <!-- Card 1 (60% Used Gold Buying Focus) -->
+                <div class="p-5 sm:p-6 bg-white rounded-2xl border-2 border-fmg-red/40 hover:border-fmg-red transition-all group shadow-md relative overflow-hidden">
+                    <div class="absolute top-0 right-0 px-3 py-1 bg-fmg-red text-white fmg-impact text-[9px] rounded-bl-xl uppercase tracking-wider">Top Cash Rate</div>
+                    <div class="text-3xl mb-3">🏷️</div>
+                    <h3 class="text-lg fmg-impact mb-1.5 text-slate-900" data-en="Instant Cash for Used Gold" data-ta="பழைய நகைக்கு உடனடி ரொக்கம்">Instant Cash for Used Gold</h3>
+                    <p class="text-slate-600 font-semibold text-xs sm:text-sm leading-relaxed" data-en="Sell old, broken, or scrap gold ornaments at 98% market valuation. Non-destructive German XRF testing with instant cash, UPI, or IMPS bank transfer in 15 minutes." data-ta="பழைய மற்றும் உடைந்த நகைகளுக்கு 98% உயர்ந்த சந்தை ரொக்கத்தைப் பெறுங்கள். ஜெர்மன் XRF சோதனை மூலம் 15 நிமிடங்களில் உடனடி ரொக்கம் அல்லது UPI பரிமாற்றம்.">Sell old, broken, or scrap gold ornaments at 98% market valuation. Non-destructive German XRF testing with instant cash, UPI, or IMPS bank transfer in 15 minutes.</p>
                 </div>
+                <!-- Card 2 (Release Pledged Gold) -->
                 <div class="p-5 sm:p-6 bg-white rounded-2xl border border-slate-200 hover:border-fmg-red transition-all group shadow-sm">
-                    <div class="text-3xl mb-3 grayscale group-hover:grayscale-0 transition-all">🛡️</div>
-                    <h3 class="text-lg fmg-impact mb-1.5" data-en="Insured Storage" data-ta="100% காப்பீடு செய்யப்பட்ட பாதுகாப்பு">Insured Storage</h3>
-                    <p class="text-slate-500 font-semibold text-xs sm:text-sm leading-relaxed" data-en="Your ornaments are stored in bank-grade vaults with 24/7 surveillance and 100% insurance." data-ta="உங்கள் நகைகள் வங்கித் தரம் கொண்ட பெட்டகங்களில் 24/7 சிசிடிவி மற்றும் 100% காப்பீட்டுடன் பாதுகாக்கப்படும்.">Your ornaments are stored in bank-grade vaults with 24/7 surveillance and 100% insurance.</p>
+                    <div class="text-3xl mb-3">🔓</div>
+                    <h3 class="text-lg fmg-impact mb-1.5 text-slate-900" data-en="Release Pledged Gold" data-ta="அடகு நகைகள் நேரடி மீட்பு">Release Pledged Gold</h3>
+                    <p class="text-slate-600 font-semibold text-xs sm:text-sm leading-relaxed" data-en="Clear high-interest loans at other banks or pawnshops using FMG direct funds. Collect surplus cash difference or convert to low-interest gold loan." data-ta="பிற வங்கிகள் மற்றும் அடகு கடைகளில் உள்ள உங்கள் நகைகளை எங்கள் நிதியில் மீட்டு, கூடுதல் பணத்தை உடனடி ரொக்கமாகப் பெறலாம்.">Clear high-interest loans at other banks or pawnshops using FMG direct funds. Collect surplus cash difference or convert to low-interest gold loan.</p>
                 </div>
+                <!-- Card 3 (40% Fast Gold Loans) -->
                 <div class="p-5 sm:p-6 bg-white rounded-2xl border border-slate-200 hover:border-fmg-red transition-all group shadow-sm sm:col-span-2 lg:col-span-1">
-                    <div class="text-3xl mb-3 grayscale group-hover:grayscale-0 transition-all">📈</div>
-                    <h3 class="text-lg fmg-impact mb-1.5" data-en="No CIBIL Check" data-ta="CIBIL ஸ்கோர் தேவையில்லை">No CIBIL Check</h3>
-                    <p class="text-slate-500 font-semibold text-xs sm:text-sm leading-relaxed" data-en="Financial support without the hassle. We don't check credit scores for our asset-backed loans." data-ta="எந்தவித கிரெடிட் ஸ்கோர் சோதனைகளும் இன்றி உங்கள் ஆதார் அட்டையை மட்டும் கொண்டு கடன் பெறலாம்.">Financial support without the hassle. We don't check credit scores for our asset-backed loans.</p>
+                    <div class="text-3xl mb-3">💰</div>
+                    <h3 class="text-lg fmg-impact mb-1.5 text-slate-900" data-en="Low-Interest Gold Loans" data-ta="குறைந்த வட்டி தங்கக் கடன்">Low-Interest Gold Loans</h3>
+                    <p class="text-slate-600 font-semibold text-xs sm:text-sm leading-relaxed" data-en="Get up to 90% highest market LTV with transparent monthly interest from 0.99%. 100% insured vault safety and zero credit score / CIBIL check." data-ta="90% வரை அதிகபட்ச கடன் மதிப்பு, மாதம் 0.99% தொடக்க வட்டி, 100% காப்பீடு செய்யப்பட்ட வங்கி பாதுகாப்பு மற்றும் சிபில் ஸ்கோர் தேவையில்லை.">Get up to 90% highest market LTV with transparent monthly interest from 0.99%. 100% insured vault safety and zero credit score / CIBIL check.</p>
                 </div>
             </div>
         </div>
@@ -603,7 +621,7 @@
                             <a href="tel:+916380630242" class="py-2 px-2.5 bg-white border border-slate-300 hover:border-fmg-red text-slate-900 text-xs font-black rounded-xl text-center transition-all">
                                 📞 Call
                             </a>
-                            <a href="https://wa.me/916380630242?text=Hi%20First%20Money%20Gold%20Chennai%20Branch,%20I%20would%20like%20to%20visit." target="_blank" class="py-2 px-2.5 bg-[#25D366] hover:bg-[#20ba5a] text-white text-xs font-black rounded-xl text-center transition-all">
+                            <a href="javascript:void(0)" class="branch-wa-btn py-2 px-2.5 bg-[#25D366] hover:bg-[#20ba5a] text-white text-xs font-black rounded-xl text-center transition-all cursor-pointer flex items-center justify-center gap-1" data-branch="Chennai Branch (T. Nagar)" data-landmark="Usman Road" data-address="No. 42, Usman Road, T. Nagar, Chennai - 600017, Tamil Nadu">
                                 💬 WhatsApp
                             </a>
                         </div>
@@ -644,7 +662,7 @@
                             <a href="tel:+916380630242" class="py-2 px-2.5 bg-white border border-slate-300 hover:border-fmg-red text-slate-900 text-xs font-black rounded-xl text-center transition-all">
                                 📞 Call
                             </a>
-                            <a href="https://wa.me/916380630242?text=Hi%20First%20Money%20Gold%20Theni%20Branch,%20I%20would%20like%20to%20visit." target="_blank" class="py-2 px-2.5 bg-[#25D366] hover:bg-[#20ba5a] text-white text-xs font-black rounded-xl text-center transition-all">
+                            <a href="javascript:void(0)" class="branch-wa-btn py-2 px-2.5 bg-[#25D366] hover:bg-[#20ba5a] text-white text-xs font-black rounded-xl text-center transition-all cursor-pointer flex items-center justify-center gap-1" data-branch="Theni Branch (Opp. New Bus Stand)" data-landmark="Opposite New Bus Stand" data-address="Madurai Main Road, Opposite New Bus Stand, Theni - 625531, Tamil Nadu">
                                 💬 WhatsApp
                             </a>
                         </div>
@@ -685,7 +703,7 @@
                             <a href="tel:+916380630242" class="py-2 px-2.5 bg-white border border-slate-300 hover:border-fmg-red text-slate-900 text-xs font-black rounded-xl text-center transition-all">
                                 📞 Call
                             </a>
-                            <a href="https://wa.me/916380630242?text=Hi%20First%20Money%20Gold%20Dindigul%20Branch,%20I%20would%20like%20to%20visit." target="_blank" class="py-2 px-2.5 bg-[#25D366] hover:bg-[#20ba5a] text-white text-xs font-black rounded-xl text-center transition-all">
+                            <a href="javascript:void(0)" class="branch-wa-btn py-2 px-2.5 bg-[#25D366] hover:bg-[#20ba5a] text-white text-xs font-black rounded-xl text-center transition-all cursor-pointer flex items-center justify-center gap-1" data-branch="Dindigul Branch (Clock Tower / Main Bazaar)" data-landmark="Near Clock Tower" data-address="Main Bazaar Road, Near Clock Tower, Dindigul - 624001, Tamil Nadu">
                                 💬 WhatsApp
                             </a>
                         </div>
@@ -726,7 +744,7 @@
                             <a href="tel:+916380630242" class="py-2 px-2.5 bg-white border border-slate-300 hover:border-fmg-red text-slate-900 text-xs font-black rounded-xl text-center transition-all">
                                 📞 Call
                             </a>
-                            <a href="https://wa.me/916380630242?text=Hi%20First%20Money%20Gold%20Batlagundu%20Branch,%20I%20would%20like%20to%20visit." target="_blank" class="py-2 px-2.5 bg-[#25D366] hover:bg-[#20ba5a] text-white text-xs font-black rounded-xl text-center transition-all">
+                            <a href="javascript:void(0)" class="branch-wa-btn py-2 px-2.5 bg-[#25D366] hover:bg-[#20ba5a] text-white text-xs font-black rounded-xl text-center transition-all cursor-pointer flex items-center justify-center gap-1" data-branch="Batlagundu Branch (Near Kaliamman Temple Bus Stop)" data-landmark="Near Kaliamman Temple Bus Stop" data-address="Dindigul Main Road, Near Kaliamman Temple Bus Stop, Batlagundu - 624202, Tamil Nadu">
                                 💬 WhatsApp
                             </a>
                         </div>
@@ -767,7 +785,7 @@
                             <a href="tel:+916380630242" class="py-2 px-2.5 bg-white border border-slate-300 hover:border-fmg-red text-slate-900 text-xs font-black rounded-xl text-center transition-all">
                                 📞 Call
                             </a>
-                            <a href="https://wa.me/916380630242?text=Hi%20First%20Money%20Gold%20Nilakottai%20Branch,%20I%20would%20like%20to%20visit." target="_blank" class="py-2 px-2.5 bg-[#25D366] hover:bg-[#20ba5a] text-white text-xs font-black rounded-xl text-center transition-all">
+                            <a href="javascript:void(0)" class="branch-wa-btn py-2 px-2.5 bg-[#25D366] hover:bg-[#20ba5a] text-white text-xs font-black rounded-xl text-center transition-all cursor-pointer flex items-center justify-center gap-1" data-branch="Nilakottai Branch (Opposite Bus Stand)" data-landmark="Opposite Bus Stand" data-address="Main Road, Opposite Bus Stand, Nilakottai - 624208, Tamil Nadu">
                                 💬 WhatsApp
                             </a>
                         </div>
@@ -795,7 +813,7 @@
                 <h3 class="text-xl fmg-impact text-white mb-5 border-l-4 border-fmg-red pl-3" data-en="01. Choose Your Setup" data-ta="01. உங்கள் முதலீட்டுத் திட்டம்">01. Choose Your Setup</h3>
                 <div class="grid lg:grid-cols-2 gap-5">
                     <!-- Standard -->
-                    <div class="p-5 sm:p-6 rounded-2xl bg-white/5 border border-white/10 flex flex-col group hover:bg-white/10 transition-all relative overflow-hidden">
+                    <div class="franchise-setup-card p-5 sm:p-6 rounded-2xl bg-white/5 border border-white/10 flex flex-col group hover:bg-white/10 hover:border-fmg-red transition-all relative overflow-hidden cursor-pointer" data-franchise-model="Standard Franchise (₹5 Lakhs)">
                         <div class="absolute top-0 right-0 px-3 py-1 bg-fmg-red text-black fmg-impact text-[10px] rounded-bl-xl">Most Popular</div>
                         <h4 class="text-2xl fmg-impact mb-1">Standard Franchise</h4>
                         <p class="text-2xl sm:text-3xl font-bold text-fmg-red mb-4">₹5 Lakhs <span class="text-xs text-slate-400 font-normal align-middle">Investment</span></p>
@@ -806,7 +824,7 @@
                         </ul>
                     </div>
                     <!-- FICO -->
-                    <div class="p-5 sm:p-6 rounded-2xl bg-white/5 border border-white/10 flex flex-col group hover:bg-white/10 transition-all">
+                    <div class="franchise-setup-card p-5 sm:p-6 rounded-2xl bg-white/5 border border-white/10 flex flex-col group hover:bg-white/10 hover:border-fmg-red transition-all cursor-pointer" data-franchise-model="FICO Model (₹15 Lakhs)">
                         <h4 class="text-2xl fmg-impact mb-1">FICO Model</h4>
                         <p class="text-2xl sm:text-3xl font-bold text-fmg-red mb-1">₹15 Lakhs <span class="text-xs text-slate-400 font-normal align-middle">Investment</span></p>
                         <p class="text-slate-400 text-xs mb-3 italic">(Franchise Invested Company Operated)</p>
@@ -824,7 +842,7 @@
                 <h3 class="text-xl fmg-impact text-white mb-5 border-l-4 border-fmg-red pl-3" data-en="02. Choose Franchise Plan" data-ta="02. லாபப் பகிர்வுத் திட்டம்">02. Choose Franchise Plan</h3>
                 <div class="grid lg:grid-cols-2 gap-5">
                     <!-- Joint Profit -->
-                    <div class="p-4 rounded-2xl bg-black border border-white/10 hover:border-fmg-red transition-all overflow-hidden group">
+                    <div class="franchise-setup-card p-4 rounded-2xl bg-black border border-white/10 hover:border-fmg-red transition-all overflow-hidden group cursor-pointer" data-franchise-model="Joint Profit Plan 01 (80/20 Sharing)">
                         <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=400&q=80" alt="Handshake" class="w-full h-36 sm:h-44 object-cover mb-4 rounded-xl opacity-80 group-hover:opacity-100 transition-opacity">
                         <div class="px-2 pb-2">
                             <div class="flex items-center justify-between mb-1">
@@ -835,7 +853,7 @@
                         </div>
                     </div>
                     <!-- Brand License -->
-                    <div class="p-4 rounded-2xl bg-black border border-white/10 hover:border-fmg-red transition-all overflow-hidden group">
+                    <div class="franchise-setup-card p-4 rounded-2xl bg-black border border-white/10 hover:border-fmg-red transition-all overflow-hidden group cursor-pointer" data-franchise-model="Brand License Plan 02 (₹1 Lakh Annual)">
                         <img src="https://images.unsplash.com/photo-1616400619175-5beda3a17896?auto=format&fit=crop&w=400&q=80" alt="Brand Label" class="w-full h-36 sm:h-44 object-cover mb-4 rounded-xl opacity-80 group-hover:opacity-100 transition-opacity">
                         <div class="px-2 pb-2">
                             <div class="flex items-center justify-between mb-1">
@@ -878,7 +896,7 @@
             </div>
 
             <div class="mt-8 md:mt-10 text-center">
-                <a href="https://wa.me/916380630242?text=Hi%20First%20Money%20Gold,%20I%20am%20interested%20in%20Franchise%20Partnership.%20Please%20share%20details." class="inline-block px-8 py-3.5 bg-fmg-red text-white rounded-xl fmg-impact text-xs sm:text-sm shadow-xl hover:scale-105 transition-transform" data-en="Get Full Details on WhatsApp" data-ta="முழு விவரங்களையும் வாட்ஸ்அப்பில் பெற">Get Full Details on WhatsApp</a>
+                <a id="franchise-wa-btn" href="javascript:void(0)" class="inline-block px-8 py-3.5 bg-fmg-red text-white rounded-xl fmg-impact text-xs sm:text-sm shadow-xl hover:scale-105 transition-transform cursor-pointer" data-en="Get Full Details on WhatsApp" data-ta="முழு விவரங்களையும் வாட்ஸ்அப்பில் பெற">Get Full Details on WhatsApp</a>
             </div>
         </div>
     </section>
@@ -974,8 +992,8 @@
                     <a href="tel:+916380630242" class="p-5 rounded-2xl bg-slate-100 border border-slate-200 fmg-impact text-base sm:text-lg hover:border-fmg-red transition-all flex items-center justify-center gap-2">
                         <span>📞</span> Call: +91 63806 30242
                     </a>
-                    <a href="https://wa.me/916380630242" target="_blank" class="p-5 rounded-2xl bg-[#25D366] text-white fmg-impact text-base sm:text-lg shadow-lg hover:bg-[#20ba5a] transition-all flex items-center justify-center gap-2">
-                        <span>💬</span> WhatsApp Support
+                    <a id="contact-wa-btn" href="javascript:void(0)" class="p-5 rounded-2xl bg-[#25D366] text-white fmg-impact text-base sm:text-lg shadow-lg hover:bg-[#20ba5a] transition-all flex items-center justify-center gap-2 cursor-pointer">
+                        <span>💬</span> <span data-en="WhatsApp Support" data-ta="வாட்ஸ்அப் உதவி">WhatsApp Support</span>
                     </a>
                 </div>
             </div>
@@ -1003,7 +1021,7 @@
                 <span class="text-base">📞</span>
                 <span data-en="Call" data-ta="அழைக்க">Call</span>
             </a>
-            <a href="https://wa.me/916380630242?text=Hi%20First%20Money%20Gold,%20I%20need%20information%20about%20Gold%20Loans." target="_blank" class="py-2.5 px-2 bg-[#25D366] text-white rounded-xl text-[10px] font-black flex flex-col items-center justify-center shadow-lg shadow-green-500/20 transition-all">
+            <a id="mobile-sticky-wa-btn" href="javascript:void(0)" class="py-2.5 px-2 bg-[#25D366] text-white rounded-xl text-[10px] font-black flex flex-col items-center justify-center shadow-lg shadow-green-500/20 transition-all cursor-pointer">
                 <span class="text-base">💬</span>
                 <span data-en="WhatsApp" data-ta="வாட்ஸ்அப்">WhatsApp</span>
             </a>
@@ -1018,9 +1036,149 @@
         </div>
     </div>
 
+    <!-- WhatsApp Category Match Modal -->
+    <div id="wa-category-modal" class="fixed inset-0 z-[200] hidden items-center justify-center bg-black/70 backdrop-blur-sm p-4 transition-all duration-300">
+        <div class="bg-white rounded-3xl shadow-2xl border border-slate-100 max-w-lg w-full overflow-hidden transform transition-all scale-95 opacity-0 animate-modal-in flex flex-col max-h-[90vh]">
+            
+            <!-- Modal Header -->
+            <div class="bg-gradient-to-r from-emerald-600 via-[#25D366] to-emerald-700 text-white p-5 sm:p-6 flex items-center justify-between shrink-0">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-2xl bg-white/20 flex items-center justify-center text-2xl shadow-inner">
+                        💬
+                    </div>
+                    <div>
+                        <div class="text-[10px] font-black tracking-[0.2em] uppercase text-emerald-100" data-en="Instant WhatsApp Connect" data-ta="நேரடி வாட்ஸ்அப் உதவி">Instant WhatsApp Connect</div>
+                        <h3 class="text-xl sm:text-2xl fmg-impact text-white leading-none mt-0.5" data-en="Select Your Category" data-ta="சேவைத் தேர்வை சொடுக்கவும்">Select Your Category</h3>
+                    </div>
+                </div>
+                <button type="button" id="close-wa-modal-btn" class="w-9 h-9 rounded-full bg-white/20 hover:bg-white/30 text-white flex items-center justify-center text-lg font-bold transition-all" title="Close">
+                    ✕
+                </button>
+            </div>
+
+            <!-- Modal Body - Category List (Prioritizing Sell Old Gold #1) -->
+            <div class="p-5 sm:p-6 overflow-y-auto space-y-3">
+                <p class="text-xs text-slate-500 font-semibold mb-2" data-en="Pick a service category to match your inquiry with customized prefilled details:" data-ta="உங்கள் தேவைக்கேற்ப வாட்ஸ்அப்பில் தானாக நிரப்பப்படும் சேவையைத் தேர்ந்தெடுக்கவும்:">
+                    Pick a service category to match your inquiry with customized prefilled details:
+                </p>
+
+                <!-- Category 1: Sell Old Gold (Primary 60% Focus) -->
+                <button type="button" class="wa-category-option w-full p-3.5 rounded-2xl border-2 border-fmg-red/40 hover:border-emerald-500 hover:bg-emerald-50/40 text-left transition-all group flex items-center justify-between shadow-sm bg-red-50/30" data-category="sell">
+                    <div class="flex items-center gap-3">
+                        <div class="w-11 h-11 rounded-xl bg-red-100 text-fmg-red flex items-center justify-center text-xl font-bold group-hover:scale-110 transition-transform">
+                            🏷️
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-2">
+                                <span class="text-sm font-black text-slate-900 group-hover:text-emerald-700" data-en="Sell Old Gold for Cash" data-ta="பழைய நகை நேரடி விற்பனை">Sell Old Gold for Cash</span>
+                                <span id="modal-sell-badge" class="px-2 py-0.5 rounded-full text-[9px] font-bold bg-amber-100 text-amber-800">🔥 98% Valuation</span>
+                            </div>
+                            <p class="text-[11px] text-slate-500 font-semibold" data-en="Instant cash or UPI payout with German XRF testing." data-ta="ஜெர்மன் XRF சோதனை மூலம் 15 நிமிடங்களில் நேரடி ரொக்கம்/UPI.">Instant cash or UPI payout with German XRF testing.</p>
+                        </div>
+                    </div>
+                    <span class="text-emerald-600 text-lg font-bold group-hover:translate-x-1 transition-transform">➔</span>
+                </button>
+
+                <!-- Category 2: Instant Gold Loan -->
+                <button type="button" class="wa-category-option w-full p-3.5 rounded-2xl border-2 border-slate-100 hover:border-emerald-500 hover:bg-emerald-50/40 text-left transition-all group flex items-center justify-between shadow-sm" data-category="loan">
+                    <div class="flex items-center gap-3">
+                        <div class="w-11 h-11 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center text-xl font-bold group-hover:scale-110 transition-transform">
+                            💰
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-2">
+                                <span class="text-sm font-black text-slate-900 group-hover:text-emerald-700" data-en="Instant Gold Loan" data-ta="உடனடி தங்கக் கடன்">Instant Gold Loan</span>
+                                <span id="modal-loan-badge" class="px-2 py-0.5 rounded-full text-[9px] font-bold bg-emerald-100 text-emerald-800">From 0.99%/mo</span>
+                            </div>
+                            <p class="text-[11px] text-slate-500 font-semibold" data-en="Highest market loan amount with 0.99% monthly interest." data-ta="அதிகபட்ச கடன் மதிப்பு மற்றும் 0.99% குறைந்த மாத வட்டி.">Highest market loan amount with 0.99% monthly interest.</p>
+                        </div>
+                    </div>
+                    <span class="text-emerald-600 text-lg font-bold group-hover:translate-x-1 transition-transform">➔</span>
+                </button>
+
+                <!-- Category 3: Release Pledged Gold -->
+                <button type="button" class="wa-category-option w-full p-3.5 rounded-2xl border-2 border-slate-100 hover:border-emerald-500 hover:bg-emerald-50/40 text-left transition-all group flex items-center justify-between shadow-sm" data-category="release">
+                    <div class="flex items-center gap-3">
+                        <div class="w-11 h-11 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center text-xl font-bold group-hover:scale-110 transition-transform">
+                            🔓
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-2">
+                                <span class="text-sm font-black text-slate-900 group-hover:text-emerald-700" data-en="Release Pledged Gold" data-ta="அடகு நகைகள் மீட்பு">Release Pledged Gold</span>
+                                <span class="px-2 py-0.5 rounded-full text-[9px] font-bold bg-blue-100 text-blue-800">Zero Debt</span>
+                            </div>
+                            <p class="text-[11px] text-slate-500 font-semibold" data-en="Clear bank/pawnshop debt with FMG funds & get surplus cash." data-ta="பிற வங்கிகளில் அடகு உள்ள நகைகளை மீட்டு கூடுதல் பணம் பெறலாம்.">Clear bank/pawnshop debt with FMG funds & get surplus cash.</p>
+                        </div>
+                    </div>
+                    <span class="text-emerald-600 text-lg font-bold group-hover:translate-x-1 transition-transform">➔</span>
+                </button>
+
+                <!-- Category 4: Branch Visit & Valuation -->
+                <button type="button" class="wa-category-option w-full p-3.5 rounded-2xl border-2 border-slate-100 hover:border-emerald-500 hover:bg-emerald-50/40 text-left transition-all group flex items-center justify-between shadow-sm" data-category="branch">
+                    <div class="flex items-center gap-3">
+                        <div class="w-11 h-11 rounded-xl bg-purple-100 text-purple-700 flex items-center justify-center text-xl font-bold group-hover:scale-110 transition-transform">
+                            📍
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-2">
+                                <span class="text-sm font-black text-slate-900 group-hover:text-emerald-700" data-en="Branch Visit & Appointment" data-ta="நேரடிக் கிளை வருகை">Branch Visit & Appointment</span>
+                                <span class="px-2 py-0.5 rounded-full text-[9px] font-bold bg-purple-100 text-purple-800">5 Branches</span>
+                            </div>
+                            <p class="text-[11px] text-slate-500 font-semibold" data-en="Chennai, Theni, Dindigul, Batlagundu, Nilakottai." data-ta="சென்னை, தேனி, திண்டுக்கல், வத்தலக்குண்டு, நிலக்கோட்டை.">Chennai, Theni, Dindigul, Batlagundu, Nilakottai.</p>
+                        </div>
+                    </div>
+                    <span class="text-emerald-600 text-lg font-bold group-hover:translate-x-1 transition-transform">➔</span>
+                </button>
+
+                <!-- Category 5: Franchise Business Partnership -->
+                <button type="button" class="wa-category-option w-full p-3.5 rounded-2xl border-2 border-slate-100 hover:border-emerald-500 hover:bg-emerald-50/40 text-left transition-all group flex items-center justify-between shadow-sm" data-category="franchise">
+                    <div class="flex items-center gap-3">
+                        <div class="w-11 h-11 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-xl font-bold group-hover:scale-110 transition-transform">
+                            🤝
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-2">
+                                <span class="text-sm font-black text-slate-900 group-hover:text-emerald-700" data-en="Franchise Partnership" data-ta="கிளை உரிமை (Franchise)">Franchise Partnership</span>
+                                <span class="px-2 py-0.5 rounded-full text-[9px] font-bold bg-emerald-100 text-emerald-800">₹1L - ₹10L/mo</span>
+                            </div>
+                            <p class="text-[11px] text-slate-500 font-semibold" data-en="Start your profitable gold business with Standard / FICO models." data-ta="மாதம் ₹1L - ₹10L வரை வருமானம் ஈட்டும் வணிக வாய்ப்பு.">Start your profitable gold business with Standard / FICO models.</p>
+                        </div>
+                    </div>
+                    <span class="text-emerald-600 text-lg font-bold group-hover:translate-x-1 transition-transform">➔</span>
+                </button>
+
+                <!-- Category 6: General Customer Support -->
+                <button type="button" class="wa-category-option w-full p-3 rounded-2xl bg-slate-50 hover:bg-slate-100 border border-slate-200 text-left transition-all group flex items-center justify-between" data-category="general">
+                    <div class="flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-lg bg-slate-200 text-slate-700 flex items-center justify-center text-base font-bold">
+                            💬
+                        </div>
+                        <div>
+                            <span class="text-xs font-bold text-slate-800 group-hover:text-fmg-red" data-en="Other Inquiries / Direct Support" data-ta="பொதுவான கேள்விகள் / உடனடி உதவி">Other Inquiries / Direct Support</span>
+                            <p class="text-[10px] text-slate-500" data-en="Chat directly with our senior financial advisor." data-ta="எங்கள் மூத்த அதிகாரியுடன் நேரடியாக உரையாடவும்.">Chat directly with our senior financial advisor.</p>
+                        </div>
+                    </div>
+                    <span class="text-slate-400 text-sm font-bold">➔</span>
+                </button>
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="bg-slate-50 border-t border-slate-100 px-5 py-3 text-center shrink-0 flex items-center justify-between">
+                <span class="text-[11px] font-bold text-slate-500">🔒 Official WhatsApp: +91 63806 30242</span>
+                <span class="text-[10px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-md">● Online Now</span>
+            </div>
+        </div>
+    </div>
+
     <!-- UI & Calculation Scripts -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            const FMG_WHATSAPP_NUMBER = '916380630242';
+            let currentLang = 'en';
+            let calcMode = 'sell'; // Defaulted to Sell Old Gold (60% focus)
+            let currentPurity = 22;
+            let currentRate = 13675;
+
             // Dynamic Copyright Year
             const yearSpan = document.getElementById('current-year');
             if (yearSpan) yearSpan.textContent = new Date().getFullYear();
@@ -1060,7 +1218,6 @@
             });
 
             // Bilingual Language Toggle
-            let currentLang = 'en';
             const langToggleBtn = document.getElementById('lang-toggle-btn');
             const currentLangText = document.getElementById('current-lang-text');
 
@@ -1073,6 +1230,8 @@
                 if (currentLangText) {
                     currentLangText.textContent = (lang === 'ta') ? 'English' : 'தமிழ்';
                 }
+                updateCalculatorLabels();
+                calculateValues();
             }
 
             if (langToggleBtn) {
@@ -1104,6 +1263,335 @@
                 return digits;
             }
 
+            function getPavanDescription(grams) {
+                const pavans = grams / 8;
+                if (pavans === 1) return '1 Pavan';
+                if (Number.isInteger(pavans)) return `${pavans} Pavans`;
+                return `${pavans.toFixed(1)} Pavans`;
+            }
+
+            // Category-Matched Prefilled WhatsApp Message Generator
+            function generateWhatsAppMessage(category, extra = {}) {
+                const isTamil = (currentLang === 'ta');
+                const weight = parseFloat(extra.weight || document.getElementById('gold-weight-input')?.value || 16);
+                const purity = parseInt(extra.purity || currentPurity || 22);
+                const purityLabel = purity === 24 ? '24 Karat (99.9% Pure)' : purity === 18 ? '18 Karat (75.0% Jewelry)' : '22 Karat (91.6% Hallmark)';
+                const rate = extra.rate || currentRate || 13675;
+                const marketVal = Math.round(weight * rate);
+                const loanEstimate = Math.round(marketVal * 0.85);
+                const sellEstimate = Math.round(marketVal * 0.98);
+                const monthlyInterest = Math.round(loanEstimate * 0.0099);
+                const pavanText = getPavanDescription(weight);
+
+                const leadName = (extra.name || document.getElementById('lead-name')?.value || '').trim();
+                const rawLeadPhone = extra.phone || document.getElementById('lead-phone')?.value || '';
+                const leadPhone = cleanPhoneNumber(rawLeadPhone);
+                const selectedCity = extra.city || document.getElementById('lead-city')?.value || 'Chennai (T. Nagar)';
+
+                let msg = '';
+
+                switch (category) {
+                    case 'sell': {
+                        if (isTamil) {
+                            msg = `🌟 *FIRST MONEY GOLD - பழைய நகை நேரடி விற்பனை* 🌟\n` +
+                                  `━━━━━━━━━━━━━━━━━━━━\n` +
+                                  `• *சேவைத் தேர்வு:* 🏷️ பழைய நகை நேரடி விற்பனை (Instant Cash)\n` +
+                                  `• *தங்கத்தின் எடை:* ${weight} கிராம் (${pavanText})\n` +
+                                  `• *காரட் (Purity):* ${purityLabel}\n` +
+                                  `• *மதிப்பிடப்பட்ட உடனடி ரொக்கம்:* ₹${sellEstimate.toLocaleString('en-IN')} (98% நேரடி பட்டுவாடா)\n` +
+                                  `• *பரிசோதனை முறை:* ஜெர்மன் XRF சேதமில்லா சோதனை\n` +
+                                  `• *விருப்பமான கிளை:* ${selectedCity}\n` +
+                                  (leadName ? `• *வாடிக்கையாளர் பெயர்:* ${leadName}\n` : '') +
+                                  (leadPhone ? `• *மொபைல் எண்:* +91 ${leadPhone}\n` : '') +
+                                  `━━━━━━━━━━━━━━━━━━━━\n` +
+                                  `வணக்கம் First Money Gold, எனது பழைய தங்க நகைகளை விற்று 98% உடனடி ரொக்கம் பெற விரும்புகிறேன். அடுத்த கட்டத்தை பகிரவும்.`;
+                        } else {
+                            msg = `🌟 *FIRST MONEY GOLD - Sell Old Gold for Cash* 🌟\n` +
+                                  `━━━━━━━━━━━━━━━━━━━━\n` +
+                                  `• *Selected Category:* 🏷️ Sell Old Gold for Instant Cash (98% Valuation)\n` +
+                                  `• *Gold Weight:* ${weight}g (${pavanText})\n` +
+                                  `• *Purity:* ${purityLabel}\n` +
+                                  `• *Estimated Direct Cash:* ₹${sellEstimate.toLocaleString('en-IN')} (98% Valuation)\n` +
+                                  `• *Testing Method:* German XRF Non-Destructive Scan\n` +
+                                  `• *Preferred Branch:* ${selectedCity}\n` +
+                                  (leadName ? `• *Customer Name:* ${leadName}\n` : '') +
+                                  (leadPhone ? `• *Mobile Number:* +91 ${leadPhone}\n` : '') +
+                                  `━━━━━━━━━━━━━━━━━━━━\n` +
+                                  `Hello First Money Gold, I want to sell my old gold ornaments for top market instant cash/UPI payout. Please assist me immediately.`;
+                        }
+                        break;
+                    }
+
+                    case 'loan': {
+                        if (isTamil) {
+                            msg = `🌟 *FIRST MONEY GOLD - உடனடி தங்கக் கடன் முன்பதிவு* 🌟\n` +
+                                  `━━━━━━━━━━━━━━━━━━━━\n` +
+                                  `• *சேவைத் தேர்வு:* 💰 உடனடி தங்கக் கடன் (அதிகபட்ச மதிப்பு)\n` +
+                                  `• *தங்கத்தின் எடை:* ${weight} கிராம் (${pavanText})\n` +
+                                  `• *காரட் (Purity):* ${purityLabel}\n` +
+                                  `• *இன்றைய நேரலை விலை:* ₹${rate.toLocaleString('en-IN')}/கிராம்\n` +
+                                  `• *கையில் கிடைக்கும் கடன் தொகை:* ₹${loanEstimate.toLocaleString('en-IN')}\n` +
+                                  `• *மாத வட்டி (0.99% முதல்):* ₹${monthlyInterest.toLocaleString('en-IN')} / மாதம்\n` +
+                                  `• *விருப்பமான கிளை:* ${selectedCity}\n` +
+                                  (leadName ? `• *வாடிக்கையாளர் பெயர்:* ${leadName}\n` : '') +
+                                  (leadPhone ? `• *மொபைல் எண்:* +91 ${leadPhone}\n` : '') +
+                                  `━━━━━━━━━━━━━━━━━━━━\n` +
+                                  `வணக்கம் First Money Gold, எனது தங்கத்திற்கு உடனடி கடன் பெற விரும்புகிறேன். 15 நிமிட பணப்பட்டுவாடா செயல்முறையைத் தொடங்கவும்.`;
+                        } else {
+                            msg = `🌟 *FIRST MONEY GOLD - Instant Gold Loan Inquiry* 🌟\n` +
+                                  `━━━━━━━━━━━━━━━━━━━━\n` +
+                                  `• *Selected Category:* 💰 Instant Gold Loan (Highest LTV)\n` +
+                                  `• *Gold Weight:* ${weight}g (${pavanText})\n` +
+                                  `• *Purity:* ${purityLabel}\n` +
+                                  `• *Today's Live Rate:* ₹${rate.toLocaleString('en-IN')}/g\n` +
+                                  `• *Estimated Loan Cash:* ₹${loanEstimate.toLocaleString('en-IN')}\n` +
+                                  `• *Monthly Interest (from 0.99%):* ₹${monthlyInterest.toLocaleString('en-IN')} / month\n` +
+                                  `• *Preferred Branch:* ${selectedCity}\n` +
+                                  (leadName ? `• *Customer Name:* ${leadName}\n` : '') +
+                                  (leadPhone ? `• *Mobile Number:* +91 ${leadPhone}\n` : '') +
+                                  `━━━━━━━━━━━━━━━━━━━━\n` +
+                                  `Hello First Money Gold, I calculated my gold loan estimate on your website and would like to proceed with instant loan disbursal. Please guide me.`;
+                        }
+                        break;
+                    }
+
+                    case 'release': {
+                        if (isTamil) {
+                            msg = `🌟 *FIRST MONEY GOLD - அடகு நகைகள் நேரடி மீட்பு* 🌟\n` +
+                                  `━━━━━━━━━━━━━━━━━━━━\n` +
+                                  `• *சேவைத் தேர்வு:* 🔓 அடகு நகைகள் மீட்பு (Loan Takeover & Debt Clearance)\n` +
+                                  `• *சேவை விவரம்:* வங்கி / அடகு கடை நிலுவைத் தொகையை FMG நிதியில் செலுத்துதல் & கூடுதல் பணப் பட்டுவாடா\n` +
+                                  `• *விருப்பமான கிளை:* ${selectedCity}\n` +
+                                  (leadName ? `• *வாடிக்கையாளர் பெயர்:* ${leadName}\n` : '') +
+                                  (leadPhone ? `• *மொபைல் எண்:* +91 ${leadPhone}\n` : '') +
+                                  (extra.weight ? `• *தோராயமான எடை:* ${extra.weight}\n` : '') +
+                                  `━━━━━━━━━━━━━━━━━━━━\n` +
+                                  `வணக்கம் First Money Gold, பிற வங்கியில் அடகு வைக்கப்பட்ட எனது நகைகளை உங்கள் நிதியைக் கொண்டு மீட்டுத் தந்து, கூடுதல் தொகையை வழங்க வழிகாட்டவும்.`;
+                        } else {
+                            msg = `🌟 *FIRST MONEY GOLD - Release Pledged Gold Inquiry* 🌟\n` +
+                                  `━━━━━━━━━━━━━━━━━━━━\n` +
+                                  `• *Selected Category:* 🔓 Release Pledged Gold (Bank/Pawnshop Loan Takeover)\n` +
+                                  `• *Service Detail:* Clear pending debt with FMG funds & receive surplus cash / 0.99% fresh loan\n` +
+                                  `• *Preferred Branch:* ${selectedCity}\n` +
+                                  (leadName ? `• *Customer Name:* ${leadName}\n` : '') +
+                                  (leadPhone ? `• *Mobile Number:* +91 ${leadPhone}\n` : '') +
+                                  (extra.weight ? `• *Approx. Gold Weight:* ${extra.weight}\n` : '') +
+                                  `━━━━━━━━━━━━━━━━━━━━\n` +
+                                  `Hello First Money Gold, I have gold pledged with another bank/pawnshop. I want First Money Gold to clear the debt and release my ornaments. Please guide me immediately.`;
+                        }
+                        break;
+                    }
+
+                    case 'branch': {
+                        const branchName = extra.branch || 'Chennai (T. Nagar)';
+                        const branchLandmark = extra.landmark || 'Usman Road';
+                        const branchAddress = extra.address || 'No. 42, Usman Road, T. Nagar, Chennai - 600017';
+                        if (isTamil) {
+                            msg = `🌟 *FIRST MONEY GOLD - கிளை வருகை & முன்பதிவு* 🌟\n` +
+                                  `━━━━━━━━━━━━━━━━━━━━\n` +
+                                  `• *சேவைத் தேர்வு:* 📍 நேரடிக் கிளை வருகை (Branch Visit & Valuation)\n` +
+                                  `• *கிளை:* ${branchName}\n` +
+                                  `• *அடையாளம்:* ${branchLandmark}\n` +
+                                  `• *முகவரி:* ${branchAddress}\n` +
+                                  `• *நேரம்:* திங்கள் - சனி: காலை 9:00 - மாலை 7:30\n` +
+                                  (leadName ? `• *வாடிக்கையாளர் பெயர்:* ${leadName}\n` : '') +
+                                  (leadPhone ? `• *மொபைல் எண்:* +91 ${leadPhone}\n` : '') +
+                                  `━━━━━━━━━━━━━━━━━━━━\n` +
+                                  `வணக்கம் ${branchName} FMG குழுவினரே, நான் உங்கள் கிளைக்கு நேரில் வருகை தந்து நகைப் பரிசோதனை / கடன் பெற விரும்புகிறேன். தற்போதைய அலுவலக இருப்பிடத்தை பகிரவும்.`;
+                        } else {
+                            msg = `🌟 *FIRST MONEY GOLD - Branch Visit Appointment* 🌟\n` +
+                                  `━━━━━━━━━━━━━━━━━━━━\n` +
+                                  `• *Selected Category:* 📍 Physical Branch Visit & In-Person Valuation\n` +
+                                  `• *Branch:* ${branchName}\n` +
+                                  `• *Landmark:* ${branchLandmark}\n` +
+                                  `• *Address:* ${branchAddress}\n` +
+                                  `• *Office Hours:* Mon - Sat: 9:00 AM – 7:30 PM\n` +
+                                  (leadName ? `• *Customer Name:* ${leadName}\n` : '') +
+                                  (leadPhone ? `• *Mobile Number:* +91 ${leadPhone}\n` : '') +
+                                  `━━━━━━━━━━━━━━━━━━━━\n` +
+                                  `Hello ${branchName} FMG team, I would like to visit your branch for gold appraisal / loan assistance. Please confirm your branch hours and location pin.`;
+                        }
+                        break;
+                    }
+
+                    case 'franchise': {
+                        const model = extra.model || 'Standard Franchise (₹5 Lakhs)';
+                        if (isTamil) {
+                            msg = `🌟 *FIRST MONEY GOLD - கிளை உரிமை & கூட்டாண்மை* 🌟\n` +
+                                  `━━━━━━━━━━━━━━━━━━━━\n` +
+                                  `• *சேவைத் தேர்வு:* 🤝 வணிகக் கூட்டாண்மை (Franchise Partnership)\n` +
+                                  `• *முதலீட்டுத் திட்டம்:* ${model}\n` +
+                                  `• *வருமான வாய்ப்பு:* மாதம் ₹1 லட்சம் முதல் ₹10 லட்சம் வரை\n` +
+                                  (leadName ? `• *விண்ணப்பதாரர் பெயர்:* ${leadName}\n` : '') +
+                                  (leadPhone ? `• *மொபைல் எண்:* +91 ${leadPhone}\n` : '') +
+                                  (selectedCity ? `• *விரும்பும் இடம்/நகரம்:* ${selectedCity}\n` : '') +
+                                  `━━━━━━━━━━━━━━━━━━━━\n` +
+                                  `வணக்கம் First Money Gold நிர்வாகமே, நான் FMG கிளை உரிமை (Franchise) தொடங்குவதில் ஆர்வமாக உள்ளேன். விரிவான திட்ட அறிக்கை மற்றும் ஆவணங்களை பகிரவும்.`;
+                        } else {
+                            msg = `🌟 *FIRST MONEY GOLD - Franchise Partnership Inquiry* 🌟\n` +
+                                  `━━━━━━━━━━━━━━━━━━━━\n` +
+                                  `• *Selected Category:* 🤝 Franchise & Business Partnership\n` +
+                                  `• *Selected Setup Model:* ${model}\n` +
+                                  `• *Expected Monthly Earning:* ₹1 Lakh - ₹10 Lakhs\n` +
+                                  (leadName ? `• *Applicant Name:* ${leadName}\n` : '') +
+                                  (leadPhone ? `• *Mobile Number:* +91 ${leadPhone}\n` : '') +
+                                  (selectedCity ? `• *Target City/Area:* ${selectedCity}\n` : '') +
+                                  `━━━━━━━━━━━━━━━━━━━━\n` +
+                                  `Hello First Money Gold Management, I am interested in opening a First Money Gold franchise branch. Please share the complete franchise prospectus, ROI model, and application procedure.`;
+                        }
+                        break;
+                    }
+
+                    case 'callback': {
+                        const chosenService = extra.service || document.getElementById('lead-service')?.value || 'Sell Old Gold';
+                        const weightVal = extra.weight || document.getElementById('lead-weight')?.value || `${weight}g (${pavanText})`;
+                        if (isTamil) {
+                            msg = `🌟 *FIRST MONEY GOLD - முன்பதிவு & ஆலோசனை* 🌟\n` +
+                                  `━━━━━━━━━━━━━━━━━━━━\n` +
+                                  `• *சேவைத் தேர்வு:* ${chosenService}\n` +
+                                  `• *வாடிக்கையாளர் பெயர்:* ${leadName || 'மதிப்பிற்குரிய வாடிக்கையாளர்'}\n` +
+                                  `• *கைபேசி எண்:* ${leadPhone ? '+91 ' + leadPhone : 'நேரடி வாட்ஸ்அப்'}\n` +
+                                  `• *விருப்பமான கிளை:* ${selectedCity}\n` +
+                                  `• *தங்கத்தின் எடை:* ${weightVal}\n` +
+                                  `━━━━━━━━━━━━━━━━━━━━\n` +
+                                  `வணக்கம் First Money Gold, இணையதளத்தில் எனது விவரங்களை பதிவு செய்துள்ளேன். எனக்கு சிறந்த வட்டித் திட்டத்தை வழங்கி உதவவும்.`;
+                        } else {
+                            msg = `🌟 *FIRST MONEY GOLD - Callback & Valuation Request* 🌟\n` +
+                                  `━━━━━━━━━━━━━━━━━━━━\n` +
+                                  `• *Selected Service Category:* ${chosenService}\n` +
+                                  `• *Customer Name:* ${leadName || 'Valued Customer'}\n` +
+                                  `• *Mobile Number:* ${leadPhone ? '+91 ' + leadPhone : 'Direct WhatsApp'}\n` +
+                                  `• *Preferred Branch:* ${selectedCity}\n` +
+                                  `• *Approx. Gold Weight:* ${weightVal}\n` +
+                                  `━━━━━━━━━━━━━━━━━━━━\n` +
+                                  `Hello First Money Gold, I have submitted my details on your website. Please connect with me for customized scheme and branch assistance.`;
+                        }
+                        break;
+                    }
+
+                    default: {
+                        if (isTamil) {
+                            msg = `🌟 *FIRST MONEY GOLD - நேரடி வாடிக்கையாளர் உதவி* 🌟\n` +
+                                  `━━━━━━━━━━━━━━━━━━━━\n` +
+                                  `• *சேவை:* பழைய நகை விற்பனை & தங்கக் கடன் ஆலோசனை\n` +
+                                  `• *விருப்பமான கிளை:* ${selectedCity}\n` +
+                                  (leadName ? `• *பெயர்:* ${leadName}\n` : '') +
+                                  (leadPhone ? `• *மொபைல் எண்:* +91 ${leadPhone}\n` : '') +
+                                  `━━━━━━━━━━━━━━━━━━━━\n` +
+                                  `வணக்கம் First Money Gold, எனக்கு பழைய நகை விற்பனை / தங்கக் கடன் தொடர்பான விவரங்கள் தேவை. உதவவும்.`;
+                        } else {
+                            msg = `🌟 *FIRST MONEY GOLD - Direct Customer Support* 🌟\n` +
+                                  `━━━━━━━━━━━━━━━━━━━━\n` +
+                                  `• *Inquiry:* Sell Old Gold / Gold Loan / Release Gold Consultation\n` +
+                                  `• *Preferred Branch:* ${selectedCity}\n` +
+                                  (leadName ? `• *Customer Name:* ${leadName}\n` : '') +
+                                  (leadPhone ? `• *Mobile Number:* +91 ${leadPhone}\n` : '') +
+                                  `━━━━━━━━━━━━━━━━━━━━\n` +
+                                  `Hello First Money Gold team, I would like to inquire about your gold buying & loan services. Please guide me.`;
+                        }
+                        break;
+                    }
+                }
+
+                return msg;
+            }
+
+            function openWhatsApp(category, extra = {}) {
+                const text = generateWhatsAppMessage(category, extra);
+                const url = `https://wa.me/${FMG_WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+                window.open(url, '_blank');
+            }
+
+            // WhatsApp Category Match Modal Management
+            const waModal = document.getElementById('wa-category-modal');
+            const closeWaModalBtn = document.getElementById('close-wa-modal-btn');
+            const modalSellBadge = document.getElementById('modal-sell-badge');
+            const modalLoanBadge = document.getElementById('modal-loan-badge');
+
+            function showWhatsAppModal() {
+                if (!waModal) return;
+                const weight = parseFloat(document.getElementById('gold-weight-input')?.value || 16);
+                const marketVal = Math.round(weight * currentRate);
+                const sellVal = Math.round(marketVal * 0.98);
+                const loanVal = Math.round(marketVal * 0.85);
+                if (modalSellBadge) {
+                    modalSellBadge.textContent = `₹${sellVal.toLocaleString('en-IN')} (98% Rate)`;
+                }
+                if (modalLoanBadge) {
+                    modalLoanBadge.textContent = `₹${loanVal.toLocaleString('en-IN')} Cash Loan`;
+                }
+                waModal.classList.remove('hidden');
+                waModal.classList.add('flex');
+            }
+
+            function hideWhatsAppModal() {
+                if (!waModal) return;
+                waModal.classList.add('hidden');
+                waModal.classList.remove('flex');
+            }
+
+            if (closeWaModalBtn) {
+                closeWaModalBtn.addEventListener('click', hideWhatsAppModal);
+            }
+
+            if (waModal) {
+                waModal.addEventListener('click', (e) => {
+                    if (e.target === waModal) hideWhatsAppModal();
+                });
+            }
+
+            document.querySelectorAll('.wa-category-option').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const cat = btn.getAttribute('data-category') || 'sell';
+                    hideWhatsAppModal();
+                    openWhatsApp(cat);
+                });
+            });
+
+            // Connect Top-level WhatsApp Triggers to Modal
+            const navWaIcon = document.getElementById('nav-wa-icon');
+            const heroWaBtn = document.getElementById('hero-wa-btn');
+            const contactWaBtn = document.getElementById('contact-wa-btn');
+            const mobileStickyWaBtn = document.getElementById('mobile-sticky-wa-btn');
+
+            if (navWaIcon) navWaIcon.addEventListener('click', showWhatsAppModal);
+            if (heroWaBtn) heroWaBtn.addEventListener('click', showWhatsAppModal);
+            if (contactWaBtn) contactWaBtn.addEventListener('click', showWhatsAppModal);
+            if (mobileStickyWaBtn) mobileStickyWaBtn.addEventListener('click', showWhatsAppModal);
+
+            // Release Gold CTA WhatsApp
+            const releaseGoldWaBtn = document.getElementById('release-gold-wa-btn');
+            if (releaseGoldWaBtn) {
+                releaseGoldWaBtn.addEventListener('click', () => {
+                    openWhatsApp('release');
+                });
+            }
+
+            // Branch cards direct WhatsApp buttons
+            document.querySelectorAll('.branch-wa-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const branch = btn.getAttribute('data-branch') || 'Chennai Branch';
+                    const landmark = btn.getAttribute('data-landmark') || '';
+                    const address = btn.getAttribute('data-address') || '';
+                    openWhatsApp('branch', { branch, landmark, address });
+                });
+            });
+
+            // Franchise Cards & Button
+            document.querySelectorAll('.franchise-setup-card').forEach(card => {
+                card.addEventListener('click', () => {
+                    const model = card.getAttribute('data-franchise-model') || 'Standard Franchise (₹5 Lakhs)';
+                    openWhatsApp('franchise', { model });
+                });
+            });
+
+            const franchiseWaBtn = document.getElementById('franchise-wa-btn');
+            if (franchiseWaBtn) {
+                franchiseWaBtn.addEventListener('click', () => {
+                    openWhatsApp('franchise');
+                });
+            }
+
             // Lead Capture Form Handler
             const leadForm = document.getElementById('lead-capture-form');
             const leadFeedback = document.getElementById('form-feedback');
@@ -1111,7 +1599,6 @@
             const phoneInput = document.getElementById('lead-phone');
 
             if (phoneInput) {
-                // Real-time sanitization when user types, pastes, or leaves the input
                 phoneInput.addEventListener('input', () => {
                     const raw = phoneInput.value;
                     if (/[^\d]/.test(raw) || raw.length > 10 || (raw.startsWith('0') && raw.length > 1) || (raw.startsWith('91') && raw.length > 10)) {
@@ -1138,7 +1625,7 @@
                     const phone = cleanPhoneNumber(rawPhone);
                     const city = document.getElementById('lead-city')?.value || 'Chennai';
                     const weight = document.getElementById('lead-weight')?.value.trim() || 'Not specified';
-                    const service = document.getElementById('lead-service')?.value || 'Gold Loan';
+                    const service = document.getElementById('lead-service')?.value || 'Sell Old Gold';
 
                     if (phone.length < 10) {
                         alert(currentLang === 'ta' ? 'தயவுசெய்து சரியான 10 இலக்க மொபைல் எண்ணை உள்ளிடவும்.' : 'Please enter a valid 10-digit mobile number.');
@@ -1154,13 +1641,9 @@
                         leadFeedback.classList.remove('hidden');
                     }
 
-                    // Pre-fill and open WhatsApp lead
-                    const msg = `Hi First Money Gold, I requested a callback on your website:\n- Name: ${name}\n- Phone: +91 ${phone}\n- City/Branch: ${city}\n- Gold Weight: ${weight}\n- Service: ${service}`;
-                    const waUrl = `https://wa.me/916380630242?text=${encodeURIComponent(msg)}`;
-                    
                     setTimeout(() => {
-                        window.open(waUrl, '_blank');
-                    }, 800);
+                        openWhatsApp('callback', { name, phone, city, weight, service });
+                    }, 600);
                 });
             }
 
@@ -1171,14 +1654,13 @@
                     const phone = cleanPhoneNumber(rawPhone);
                     const city = document.getElementById('lead-city')?.value || 'Chennai';
                     const weight = document.getElementById('lead-weight')?.value.trim() || '';
-                    const service = document.getElementById('lead-service')?.value || 'Gold Loan';
+                    const service = document.getElementById('lead-service')?.value || 'Sell Old Gold';
 
                     if (phone && phoneInput) {
                         phoneInput.value = phone;
                     }
 
-                    const msg = `Hi First Money Gold, I would like to inquire about:\n- Name: ${name}\n- Phone: ${phone ? '+91 ' + phone : 'Direct Inquiry'}\n- City/Branch: ${city}\n- Gold Weight: ${weight || 'Not specified'}\n- Service: ${service}`;
-                    window.open(`https://wa.me/916380630242?text=${encodeURIComponent(msg)}`, '_blank');
+                    openWhatsApp('callback', { name, phone, city, weight, service });
                 });
             }
 
@@ -1233,10 +1715,6 @@
             }
 
             // Gold Loan & Cash Calculator Logic
-            let calcMode = 'loan';
-            let currentPurity = 22;
-            let currentRate = 13675;
-
             const modeLoanBtn = document.getElementById('calc-mode-loan');
             const modeSellBtn = document.getElementById('calc-mode-sell');
             const purityBtns = document.querySelectorAll('.purity-btn');
@@ -1254,6 +1732,47 @@
             const calcMonthlyInterest = document.getElementById('calc-monthly-interest');
             const calcWhatsappBtn = document.getElementById('calc-whatsapp-btn');
 
+            function updateCalculatorLabels() {
+                if (calcMode === 'sell') {
+                    if (resultTitle) resultTitle.innerText = (currentLang === 'ta') ? 'பழைய நகை நேரடி விற்பனை மதிப்பீடு' : 'Instant Old Gold Valuation';
+                    if (outputLabel) outputLabel.innerText = (currentLang === 'ta') ? 'கையில் கிடைக்கும் நேரடி ரொக்கம்' : 'Direct Cash Payout (98% Valuation)';
+                    if (calcLtvBadge) {
+                        calcLtvBadge.innerText = (currentLang === 'ta') ? '🔥 98% உயர்ந்த சந்தை ரொக்க மதிப்பு' : '🔥 Top Market Cash Rate (98%)';
+                        calcLtvBadge.className = 'inline-block mt-1.5 text-[10px] font-bold text-amber-400 bg-amber-500/10 px-2.5 py-0.5 rounded-full';
+                    }
+                    if (calcInterestRow) calcInterestRow.style.display = 'none';
+                    if (calcWhatsappBtn) {
+                        const btnText = calcWhatsappBtn.querySelector('span');
+                        if (btnText) btnText.innerText = (currentLang === 'ta') ? 'பழைய நகையை விற்று உடனடி பணம் பெற' : 'SELL THIS GOLD ON WHATSAPP';
+                    }
+                } else {
+                    if (resultTitle) resultTitle.innerText = (currentLang === 'ta') ? 'உடனடி தங்கக் கடன் மதிப்பீடு' : 'Instant Gold Loan Estimate';
+                    if (outputLabel) outputLabel.innerText = (currentLang === 'ta') ? 'கையில் கிடைக்கும் கடன் தொகை' : 'Max Loan Cash In Hand';
+                    if (calcLtvBadge) {
+                        calcLtvBadge.innerText = (currentLang === 'ta') ? 'சந்தை மதிப்பில் 85% - 90% வரை' : 'Up to 85% - 90% Market LTV';
+                        calcLtvBadge.className = 'inline-block mt-1.5 text-[10px] font-bold text-emerald-400 bg-emerald-500/10 px-2.5 py-0.5 rounded-full';
+                    }
+                    if (calcInterestRow) calcInterestRow.style.display = 'flex';
+                    if (calcWhatsappBtn) {
+                        const btnText = calcWhatsappBtn.querySelector('span');
+                        if (btnText) btnText.innerText = (currentLang === 'ta') ? 'இந்தக் கடனை வாட்ஸ்அப்பில் பெற' : 'GET THIS LOAN ON WHATSAPP';
+                    }
+                }
+            }
+
+            function setCalculatorMode(mode) {
+                calcMode = mode;
+                if (mode === 'sell') {
+                    if (modeSellBtn) modeSellBtn.className = 'calc-mode-btn py-2.5 px-3 rounded-lg text-xs md:text-sm font-black transition-all bg-fmg-red text-white shadow-md';
+                    if (modeLoanBtn) modeLoanBtn.className = 'calc-mode-btn py-2.5 px-3 rounded-lg text-xs md:text-sm font-black transition-all bg-transparent text-slate-600 hover:text-black';
+                } else {
+                    if (modeLoanBtn) modeLoanBtn.className = 'calc-mode-btn py-2.5 px-3 rounded-lg text-xs md:text-sm font-black transition-all bg-fmg-red text-white shadow-md';
+                    if (modeSellBtn) modeSellBtn.className = 'calc-mode-btn py-2.5 px-3 rounded-lg text-xs md:text-sm font-black transition-all bg-transparent text-slate-600 hover:text-black';
+                }
+                updateCalculatorLabels();
+                calculateValues();
+            }
+
             function calculateValues() {
                 const weight = parseFloat(weightInput?.value) || 0;
                 const marketVal = weight * currentRate;
@@ -1263,51 +1782,30 @@
                 if (calcLoanAmount) calcLoanAmount.innerText = loanVal.toLocaleString('en-IN');
                 if (calcMarketVal) calcMarketVal.innerText = '₹' + Math.round(marketVal).toLocaleString('en-IN');
                 if (calcMonthlyInterest) calcMonthlyInterest.innerText = '₹' + monthlyInterest.toLocaleString('en-IN') + ' / month';
-
-                if (calcWhatsappBtn) {
-                    const modeText = (calcMode === 'loan') ? 'Gold Loan' : 'Sell Old Gold';
-                    const msg = `Hi First Money Gold, I checked your online calculator and I want to apply for a ${modeText} for ${weight}g of ${currentPurity} Karat Gold (Estimated Value: ₹${loanVal.toLocaleString('en-IN')}). Please assist me.`;
-                    calcWhatsappBtn.href = `https://wa.me/916380630242?text=${encodeURIComponent(msg)}`;
-                }
             }
 
-            if (modeLoanBtn && modeSellBtn) {
-                modeLoanBtn.addEventListener('click', () => {
-                    calcMode = 'loan';
-                    modeLoanBtn.className = 'calc-mode-btn py-3 px-4 rounded-xl text-xs md:text-sm font-black transition-all bg-fmg-red text-white shadow-md';
-                    modeSellBtn.className = 'calc-mode-btn py-3 px-4 rounded-xl text-xs md:text-sm font-black transition-all bg-transparent text-slate-600 hover:text-black';
-                    if (resultTitle) resultTitle.innerText = (currentLang === 'ta') ? 'உடனடி தங்கக் கடன் மதிப்பீடு' : 'Instant Gold Loan Estimate';
-                    if (outputLabel) outputLabel.innerText = (currentLang === 'ta') ? 'கையில் கிடைக்கும் கடன் தொகை' : 'Max Loan Cash In Hand';
-                    if (calcLtvBadge) {
-                        calcLtvBadge.innerText = (currentLang === 'ta') ? 'சந்தை மதிப்பில் 85% - 90% வரை' : 'Up to 85% - 90% Market LTV';
-                        calcLtvBadge.className = 'inline-block mt-2 text-[11px] font-bold text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full';
-                    }
-                    if (calcInterestRow) calcInterestRow.style.display = 'flex';
-                    if (calcWhatsappBtn) {
-                        const btnText = calcWhatsappBtn.querySelector('span');
-                        if (btnText) btnText.innerText = (currentLang === 'ta') ? 'இந்தக் கடனை வாட்ஸ்அப்பில் பெற' : 'GET THIS LOAN ON WHATSAPP';
-                    }
-                    calculateValues();
-                });
-
-                modeSellBtn.addEventListener('click', () => {
-                    calcMode = 'sell';
-                    modeSellBtn.className = 'calc-mode-btn py-3 px-4 rounded-xl text-xs md:text-sm font-black transition-all bg-fmg-red text-white shadow-md';
-                    modeLoanBtn.className = 'calc-mode-btn py-3 px-4 rounded-xl text-xs md:text-sm font-black transition-all bg-transparent text-slate-600 hover:text-black';
-                    if (resultTitle) resultTitle.innerText = (currentLang === 'ta') ? 'பழைய நகை நேரடி விற்பனை மதிப்பீடு' : 'Instant Old Gold Sell Estimate';
-                    if (outputLabel) outputLabel.innerText = (currentLang === 'ta') ? 'நேரடி ரொக்கப் பட்டுவாடா' : 'Direct Cash Payout (98% Valuation)';
-                    if (calcLtvBadge) {
-                        calcLtvBadge.innerText = (currentLang === 'ta') ? 'உயர்ந்த சந்தை விலை' : 'Top Market Rate Payout';
-                        calcLtvBadge.className = 'inline-block mt-2 text-[11px] font-bold text-amber-400 bg-amber-500/10 px-3 py-1 rounded-full';
-                    }
-                    if (calcInterestRow) calcInterestRow.style.display = 'none';
-                    if (calcWhatsappBtn) {
-                        const btnText = calcWhatsappBtn.querySelector('span');
-                        if (btnText) btnText.innerText = (currentLang === 'ta') ? 'பழைய நகையை விற்று உடனடி பணம் பெற' : 'SELL GOLD & GET INSTANT CASH';
-                    }
-                    calculateValues();
+            if (calcWhatsappBtn) {
+                calcWhatsappBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    openWhatsApp(calcMode);
                 });
             }
+
+            if (modeSellBtn) modeSellBtn.addEventListener('click', () => setCalculatorMode('sell'));
+            if (modeLoanBtn) modeLoanBtn.addEventListener('click', () => setCalculatorMode('loan'));
+
+            // Hero CTA Links switching calculator mode
+            document.querySelectorAll('.hero-sell-cta').forEach(el => {
+                el.addEventListener('click', () => {
+                    setCalculatorMode('sell');
+                });
+            });
+
+            document.querySelectorAll('.hero-loan-cta').forEach(el => {
+                el.addEventListener('click', () => {
+                    setCalculatorMode('loan');
+                });
+            });
 
             purityBtns.forEach(btn => {
                 btn.addEventListener('click', () => {
@@ -1371,7 +1869,7 @@
                 });
             });
 
-            calculateValues();
+            setCalculatorMode('sell');
         });
     </script>
     <script type="module" src="index.js"></script>
