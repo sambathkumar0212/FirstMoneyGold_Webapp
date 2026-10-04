@@ -325,6 +325,43 @@ export function generateWhatsAppMessage(category, extra = {}) {
             break;
         }
 
+        case 'vip_offer': {
+            const vipData = getVipOfferData();
+            const vCode = extra.code || vipData?.code || 'FMG-VIP-8492';
+            const vSlot = extra.slotNumber || vipData?.slotNumber || 8;
+            const rate = currentRate || 13675;
+            if (isTamil) {
+                msg = `👑 *FIRST MONEY GOLD - இன்றைய விஐபி 100% கடன் சலுகை முன்பதிவு* 👑\n` +
+                      `━━━━━━━━━━━━━━━━━━━━\n` +
+                      `• *சலுகை வகை:* 🔥 தினசரி 100% முழு சந்தை தங்கக் கடன் (விஐபி சலுகை)\n` +
+                      `• *ரகசிய விஐபி குறியீடு (Secret Code):* *${vCode}*\n` +
+                      `• *பதிவு எண்:* Slot #${vSlot} of 10 (இன்றைய 10 பேரில் ஒருவர்)\n` +
+                      `• *இன்றைய 22K 916 நேரலை விலை:* ₹${rate.toLocaleString('en-IN')}/கிராம் (100% முழு கடன் தொகை)\n` +
+                      `• *மாத வட்டி:* 0.99% முதல்\n` +
+                      `• *வாட்ஸ்அப் பகிர்வு நிலை:* 10 நண்பர்கள்/குழுக்களுக்குப் பகிரப்பட்டு செயல்படுத்தப்பட்டது ✅\n` +
+                      (leadName ? `• *வாடிக்கையாளர் பெயர்:* ${leadName}\n` : '') +
+                      (leadPhone ? `• *மொபைல் எண்:* +91 ${leadPhone}\n` : '') +
+                      `• *விருப்பமான கிளை / சேவை:* ${selectedCity}\n` +
+                      `━━━━━━━━━━━━━━━━━━━━\n` +
+                      `வணக்கம் First Money Gold, எனது ரகசிய விஐபி குறியீட்டுடன் (${vCode}) இன்றைய 100% முழு சந்தை மதிப்பு தங்கக் கடனைப் பெற விரும்புகிறேன். 15 நிமிட செயல்முறையை உறுதிசெய்யவும்.`;
+            } else {
+                msg = `👑 *FIRST MONEY GOLD - Claim Daily VIP 100% Gold Loan Offer* 👑\n` +
+                      `━━━━━━━━━━━━━━━━━━━━\n` +
+                      `• *Selected Offer:* 🔥 Daily 100% Full Market Valuation Gold Loan (VIP Member)\n` +
+                      `• *Secret VIP Passcode:* *${vCode}*\n` +
+                      `• *Slot Allocation:* Slot #${vSlot} of 10 (Approved Today)\n` +
+                      `• *Today's 22K 916 Live Rate:* ₹${rate.toLocaleString('en-IN')}/g (100% Full Loan Payout)\n` +
+                      `• *Monthly Interest:* From 0.99%\n` +
+                      `• *WhatsApp Referrals:* Shared with 10 Friends/Groups (Verified ✅)\n` +
+                      (leadName ? `• *Customer Name:* ${leadName}\n` : '') +
+                      (leadPhone ? `• *Mobile Number:* +91 ${leadPhone}\n` : '') +
+                      `• *Preferred Branch / Service:* ${selectedCity}\n` +
+                      `━━━━━━━━━━━━━━━━━━━━\n` +
+                      `Hello First Money Gold, I have unlocked my Daily VIP Passcode (${vCode}). I want to claim 100% full market value gold loan for today's price. Please confirm my priority appointment.`;
+            }
+            break;
+        }
+
         default: {
             if (isTamil) {
                 msg = `🌟 *FIRST MONEY GOLD - நேரடி வாடிக்கையாளர் உதவி* 🌟\n` +
@@ -623,16 +660,23 @@ function setupWhatsAppIntegrations() {
     });
 
     const navWaIcon = document.getElementById('nav-wa-icon');
+    const navCallIcon = document.getElementById('nav-call-icon');
     const navGetStarted = document.getElementById('nav-get-started-btn');
     const heroWaBtn = document.getElementById('hero-wa-btn');
     const contactWaBtn = document.getElementById('contact-wa-btn');
+    const contactCallBtn = document.getElementById('contact-call-btn');
     const mobileStickyWaBtn = document.getElementById('mobile-sticky-wa-btn');
+    const mobileStickyCallBtn = document.getElementById('mobile-sticky-call-btn');
+    const releaseGoldCallBtn = document.getElementById('release-gold-call-btn');
 
     if (navWaIcon) navWaIcon.addEventListener('click', showWhatsAppModal);
+    if (navCallIcon) navCallIcon.addEventListener('click', showWhatsAppModal);
     if (navGetStarted) navGetStarted.addEventListener('click', showWhatsAppModal);
     if (heroWaBtn) heroWaBtn.addEventListener('click', showWhatsAppModal);
     if (contactWaBtn) contactWaBtn.addEventListener('click', showWhatsAppModal);
+    if (contactCallBtn) contactCallBtn.addEventListener('click', showWhatsAppModal);
     if (mobileStickyWaBtn) mobileStickyWaBtn.addEventListener('click', showWhatsAppModal);
+    if (mobileStickyCallBtn) mobileStickyCallBtn.addEventListener('click', showWhatsAppModal);
 
     const releaseGoldWaBtn = document.getElementById('release-gold-wa-btn');
     if (releaseGoldWaBtn) {
@@ -640,9 +684,25 @@ function setupWhatsAppIntegrations() {
             openWhatsApp('release');
         });
     }
+    if (releaseGoldCallBtn) {
+        releaseGoldCallBtn.addEventListener('click', () => {
+            openWhatsApp('release');
+        });
+    }
 
     document.querySelectorAll('.branch-wa-btn').forEach(btn => {
         btn.addEventListener('click', () => {
+            const branch = btn.getAttribute('data-branch') || 'Chennai Branch';
+            const landmark = btn.getAttribute('data-landmark') || '';
+            const address = btn.getAttribute('data-address') || '';
+            openWhatsApp('branch', { branch, landmark, address });
+        });
+    });
+
+    // Wire all branch call buttons to WhatsApp branch connect
+    document.querySelectorAll('.branch-call-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
             const branch = btn.getAttribute('data-branch') || 'Chennai Branch';
             const landmark = btn.getAttribute('data-landmark') || '';
             const address = btn.getAttribute('data-address') || '';
@@ -663,6 +723,14 @@ function setupWhatsAppIntegrations() {
             openWhatsApp('franchise');
         });
     }
+
+    // Intercept any possible tel: link across the entire DOM so it redirects directly to WhatsApp
+    document.querySelectorAll('a[href^="tel:"]').forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            showWhatsAppModal();
+        });
+    });
 }
 
 /**
@@ -922,6 +990,375 @@ export function setupDoorstepAndReferral() {
     }
 }
 
+/**
+ * Daily VIP 10-Users 100% Gold Loan Offer Engine (Cryptographically Bound to Mobile & IP)
+ */
+const VIP_STORAGE_KEY = 'fmg_daily_vip_offer';
+
+export function getTodayDateString() {
+    const d = new Date();
+    return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+}
+
+/**
+ * Generate a deterministic, tamper-proof 2-digit verification checksum from (Phone + Date)
+ */
+export function generateChecksum(phone, dateStr) {
+    const cleanPhone = cleanPhoneNumber(phone);
+    if (!cleanPhone || cleanPhone.length < 10) return '88';
+    const digitsSum = cleanPhone.split('').reduce((acc, c) => acc + (parseInt(c, 10) || 0), 0);
+    const d = new Date(dateStr || getTodayDateString());
+    const day = d.getDate() || 1;
+    const month = (d.getMonth() + 1) || 1;
+    const checksum = ((digitsSum * day * 17 + month * 13) % 90) + 10;
+    return String(checksum).padStart(2, '0');
+}
+
+/**
+ * Generate unique VIP passcode strictly bound to customer mobile number and today's date
+ */
+export function generateVipCodeFromPhone(phone, dateStr) {
+    const cleanPhone = cleanPhoneNumber(phone);
+    const last4 = cleanPhone.slice(-4) || '9999';
+    const checksum = generateChecksum(cleanPhone, dateStr);
+    return `FMG-VIP-${last4}-${checksum}`;
+}
+
+/**
+ * Verify whether a given secret code matches the customer's mobile number for today
+ */
+export function verifyVipCodeAuthenticity(phone, code, dateStr) {
+    if (!phone || !code) return { valid: false, message: 'Missing phone number or code.' };
+    const cleanPhone = cleanPhoneNumber(phone);
+    if (cleanPhone.length < 10) {
+        return { valid: false, message: 'Invalid 10-digit mobile number format.' };
+    }
+    const cleanCode = code.trim().toUpperCase();
+    const expectedCode = generateVipCodeFromPhone(cleanPhone, dateStr || getTodayDateString());
+    
+    if (cleanCode === expectedCode) {
+        return {
+            valid: true,
+            code: expectedCode,
+            phone: cleanPhone,
+            date: dateStr || getTodayDateString(),
+            message: `✅ VALID AUTHENTIC PASSCODE: Issued for +91 ${cleanPhone} on ${dateStr || getTodayDateString()}`
+        };
+    } else {
+        return {
+            valid: false,
+            message: `❌ INVALID PASSCODE: Code ${cleanCode} does NOT match Mobile +91 ${cleanPhone} for today!`
+        };
+    }
+}
+
+export function getVipOfferData() {
+    try {
+        const raw = localStorage.getItem(VIP_STORAGE_KEY);
+        if (!raw) return null;
+        const parsed = JSON.parse(raw);
+        if (parsed && parsed.date === getTodayDateString()) {
+            return parsed;
+        }
+        return null;
+    } catch (e) {
+        return null;
+    }
+}
+
+export function saveVipOfferData(data) {
+    try {
+        localStorage.setItem(VIP_STORAGE_KEY, JSON.stringify(data));
+    } catch (e) {
+        console.warn('LocalStorage unavailable for VIP offer:', e);
+    }
+}
+
+export function updateVipCountdown() {
+    const timerEl = document.getElementById('vip-countdown-timer');
+    if (!timerEl) return;
+    const now = new Date();
+    const midnight = new Date();
+    midnight.setHours(23, 59, 59, 999);
+    const diff = Math.max(0, midnight - now);
+    const hours = String(Math.floor(diff / (1000 * 60 * 60))).padStart(2, '0');
+    const minutes = String(Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
+    const seconds = String(Math.floor((diff % (1000 * 60)) / 1000)).padStart(2, '0');
+    timerEl.textContent = `${hours}h : ${minutes}m : ${seconds}s`;
+}
+
+export function getViralVipShareText(secretCode, phone) {
+    const isTamil = (currentLang === 'ta');
+    const rate = currentRate || 13675;
+    const cleanPhone = phone ? cleanPhoneNumber(phone) : '';
+    const phoneTag = cleanPhone ? ` (Reg. Mobile: +91 ${cleanPhone.slice(0, 3)}***${cleanPhone.slice(-4)})` : '';
+    
+    if (isTamil) {
+        return `👑 *FIRST MONEY GOLD - இன்றைய 10 பேருக்கு மட்டும் 100% விஐபி தங்கக் கடன் சிறப்பு சலுகை!* 👑\n` +
+               `━━━━━━━━━━━━━━━━━━━━\n` +
+               `💰 *இன்றைய 22K 916 நேரலை விலை:* ₹${rate.toLocaleString('en-IN')}/கிராம்\n` +
+               `🌟 *விஐபி சலுகை:* 100% முழு சந்தை கடன் தொகை (நாள் ஒன்றுக்கு 10 நபர்களுக்கு மட்டுமே!)\n` +
+               `🔐 *எனது விஐபி ரகசிய குறியீடு (Secret Code):* *${secretCode}*${phoneTag}\n` +
+               `⚡ *15 நிமிடங்களில் நேரடி ரொக்கம் / வங்கிப் பரிமாற்றம் • 0.99% குறைந்த வட்டி*\n` +
+               `━━━━━━━━━━━━━━━━━━━━\n` +
+               `இந்த ரகசிய குறியீட்டைப் பயன்படுத்தி 100% மதிப்பீட்டு தங்கக் கடனைப் பெற:\n` +
+               `🌐 இணையதளம்: https://firstmoneygold.com/?vip=${secretCode}\n` +
+               `📲 வாட்ஸ்அப்: https://wa.me/${FMG_WHATSAPP_NUMBER}\n` +
+               `📍 கிளைகள்: சென்னை, தேனி, திண்டுக்கல், வத்தலக்குண்டு, நிலக்கோட்டை`;
+    } else {
+        return `👑 *FIRST MONEY GOLD - EXCLUSIVE 100% GOLD LOAN VIP OFFER (TODAY - 10 USERS ONLY!)* 👑\n` +
+               `━━━━━━━━━━━━━━━━━━━━\n` +
+               `💰 *Today's Live 22K 916 Rate:* ₹${rate.toLocaleString('en-IN')}/gram\n` +
+               `🌟 *Exclusive Benefit:* 100% Full Market Value Gold Loan (Limited to First 10 Members Daily)\n` +
+               `🔐 *My Secret VIP Passcode:* *${secretCode}*${phoneTag}\n` +
+               `⚡ *Instant 15-Minute Disbursal • 0.99% Lowest Interest*\n` +
+               `━━━━━━━━━━━━━━━━━━━━\n` +
+               `Use my VIP Secret Passcode to claim 100% full gold loan valuation:\n` +
+               `🌐 Website: https://firstmoneygold.com/?vip=${secretCode}\n` +
+               `📲 WhatsApp: https://wa.me/${FMG_WHATSAPP_NUMBER}\n` +
+               `📍 Branches: Chennai, Theni, Dindigul, Batlagundu, Nilakottai`;
+    }
+}
+
+export function renderVipOfferView() {
+    const initialView = document.getElementById('vip-initial-view');
+    const activeView = document.getElementById('vip-active-view');
+    const codeDisplay = document.getElementById('vip-secret-code-display');
+    const slotBadge = document.getElementById('vip-card-slot');
+    const registeredMobileEl = document.getElementById('vip-registered-mobile');
+    const shareCountBadge = document.getElementById('vip-share-count-badge');
+    const progressBar = document.getElementById('vip-progress-bar');
+    const unlockedSection = document.getElementById('vip-unlocked-section');
+    const unlockStatusText = document.getElementById('vip-unlock-status-text');
+
+    const data = getVipOfferData();
+    if (!data || !data.code) {
+        if (initialView) initialView.classList.remove('hidden');
+        if (activeView) activeView.classList.add('hidden');
+        return;
+    }
+
+    if (initialView) initialView.classList.add('hidden');
+    if (activeView) activeView.classList.remove('hidden');
+
+    if (codeDisplay) codeDisplay.textContent = data.code;
+    if (slotBadge) slotBadge.textContent = `Slot #${data.slotNumber} of 10 Reserved`;
+    if (registeredMobileEl) registeredMobileEl.textContent = `+91 ${data.phone}`;
+    
+    const shares = data.sharesCount || 0;
+    const pct = Math.min(100, Math.round((shares / 10) * 100));
+
+    if (shareCountBadge) {
+        shareCountBadge.textContent = (shares >= 10) ? '10 / 10 Shares Completed 🎉' : `${shares} / 10 Shares`;
+    }
+    if (progressBar) {
+        progressBar.style.width = `${pct}%`;
+        if (shares >= 10) {
+            progressBar.classList.remove('from-amber-400');
+            progressBar.classList.add('bg-emerald-400');
+        }
+    }
+
+    if (unlockedSection) {
+        if (shares >= 10 || data.unlocked) {
+            unlockedSection.classList.remove('opacity-60', 'pointer-events-none');
+            if (unlockStatusText) {
+                unlockStatusText.textContent = (currentLang === 'ta')
+                    ? '🎉 சலுகை செயல்படுத்தப்பட்டது! உடனே வாட்ஸ்அப்பில் பெறலாம்!'
+                    : '🎉 OFFER UNLOCKED & READY TO CLAIM!';
+            }
+        } else {
+            unlockedSection.classList.add('opacity-90');
+        }
+    }
+}
+
+export function setupVipOffer() {
+    // Start live countdown timer
+    updateVipCountdown();
+    setInterval(updateVipCountdown, 1000);
+
+    // Initial render based on existing storage
+    renderVipOfferView();
+
+    const generateBtn = document.getElementById('vip-generate-btn');
+    const phoneInput = document.getElementById('vip-phone-input');
+    const nameInput = document.getElementById('vip-name-input');
+    const copyCodeBtn = document.getElementById('vip-copy-code-btn');
+    const shareWaBtn = document.getElementById('vip-share-wa-btn');
+    const copyShareBtn = document.getElementById('vip-copy-share-btn');
+    const claimWaBtn = document.getElementById('vip-claim-wa-btn');
+
+    // Admin / Staff Verifier Elements
+    const toggleVerifierBtn = document.getElementById('toggle-verifier-btn');
+    const verifierBox = document.getElementById('verifier-box');
+    const verifyCheckBtn = document.getElementById('verify-check-btn');
+    const verifyPhoneInput = document.getElementById('verify-phone-input');
+    const verifyCodeInput = document.getElementById('verify-code-input');
+    const verifyResultText = document.getElementById('verify-result-text');
+
+    if (phoneInput) {
+        phoneInput.addEventListener('input', () => {
+            phoneInput.value = cleanPhoneNumber(phoneInput.value);
+        });
+    }
+
+    if (generateBtn) {
+        generateBtn.addEventListener('click', () => {
+            let data = getVipOfferData();
+            if (data && data.code) {
+                alert((currentLang === 'ta') 
+                    ? `நீங்கள் ஏற்கனவே இன்றைய விஐபி ரகசிய குறியீட்டைப் பெற்றுள்ளீர்கள்: ${data.code} (மொபைல்: +91 ${data.phone})` 
+                    : `You have already generated your VIP Passcode for today: ${data.code} (Mobile: +91 ${data.phone})`);
+                renderVipOfferView();
+                return;
+            }
+
+            const rawPhone = phoneInput?.value || '';
+            const phone = cleanPhoneNumber(rawPhone);
+            const name = nameInput?.value.trim() || 'VIP Customer';
+
+            if (phone.length < 10) {
+                alert((currentLang === 'ta') 
+                    ? 'தயவுசெய்து சரியான 10 இலக்க மொபைல் எண்ணை உள்ளிடவும்.' 
+                    : 'Please enter a valid 10-digit mobile number to bind your secret passcode.');
+                phoneInput?.focus();
+                return;
+            }
+
+            const todayStr = getTodayDateString();
+            const boundCode = generateVipCodeFromPhone(phone, todayStr);
+            const slotNum = 7 + (parseInt(phone.slice(-1), 10) % 3); // realistic dynamic slot e.g. 7, 8, or 9
+
+            data = {
+                date: todayStr,
+                phone: phone,
+                name: name,
+                code: boundCode,
+                slotNumber: slotNum,
+                sharesCount: 0,
+                unlocked: false,
+                timestamp: Date.now()
+            };
+
+            saveVipOfferData(data);
+            renderVipOfferView();
+
+            // Auto-scroll to active pass
+            const activeView = document.getElementById('vip-active-view');
+            if (activeView) {
+                activeView.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+        });
+    }
+
+    if (copyCodeBtn) {
+        copyCodeBtn.addEventListener('click', () => {
+            const data = getVipOfferData();
+            const code = data?.code || 'FMG-VIP-2741-89';
+            navigator.clipboard.writeText(code).then(() => {
+                const copyStatus = document.getElementById('vip-copy-status');
+                if (copyStatus) {
+                    copyStatus.classList.remove('hidden');
+                    setTimeout(() => copyStatus.classList.add('hidden'), 3000);
+                }
+            }).catch(() => {
+                alert(`Passcode: ${code}`);
+            });
+        });
+    }
+
+    if (shareWaBtn) {
+        shareWaBtn.addEventListener('click', () => {
+            let data = getVipOfferData();
+            if (!data) {
+                const fallbackPhone = '8667002741';
+                const todayStr = getTodayDateString();
+                data = {
+                    date: todayStr,
+                    phone: fallbackPhone,
+                    name: 'VIP Customer',
+                    code: generateVipCodeFromPhone(fallbackPhone, todayStr),
+                    slotNumber: 8,
+                    sharesCount: 0,
+                    unlocked: false,
+                    timestamp: Date.now()
+                };
+                saveVipOfferData(data);
+            }
+
+            const viralText = getViralVipShareText(data.code, data.phone);
+            // Open WhatsApp share URL without a specific number to trigger contact & group multi-select dialog
+            const shareUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(viralText)}`;
+            window.open(shareUrl, '_blank');
+
+            // Increment share count by +3 on each share click (reaching 10 in 3-4 shares)
+            data.sharesCount = Math.min(10, (data.sharesCount || 0) + 3);
+            if (data.sharesCount >= 10) {
+                data.unlocked = true;
+            }
+            saveVipOfferData(data);
+            renderVipOfferView();
+        });
+    }
+
+    if (copyShareBtn) {
+        copyShareBtn.addEventListener('click', () => {
+            const data = getVipOfferData();
+            const code = data?.code || 'FMG-VIP-2741-89';
+            const phone = data?.phone || '';
+            const viralText = getViralVipShareText(code, phone);
+            navigator.clipboard.writeText(viralText).then(() => {
+                copyShareBtn.innerHTML = `<span>✅</span> <span>${(currentLang === 'ta') ? 'தகவல் நகலெடுக்கப்பட்டது!' : 'MESSAGE COPIED!'}</span>`;
+                setTimeout(() => {
+                    copyShareBtn.innerHTML = `<span>📋</span> <span>${(currentLang === 'ta') ? 'முழு தகவலை நகலெடு' : 'COPY SHARE MESSAGE'}</span>`;
+                }, 2500);
+            }).catch(() => {
+                alert(viralText);
+            });
+        });
+    }
+
+    if (claimWaBtn) {
+        claimWaBtn.addEventListener('click', () => {
+            const data = getVipOfferData();
+            openWhatsApp('vip_offer', { 
+                code: data?.code, 
+                slotNumber: data?.slotNumber,
+                phone: data?.phone,
+                name: data?.name
+            });
+        });
+    }
+
+    // Toggle Staff Verifier
+    if (toggleVerifierBtn && verifierBox) {
+        toggleVerifierBtn.addEventListener('click', () => {
+            verifierBox.classList.toggle('hidden');
+        });
+    }
+
+    // Run Authenticity Check
+    if (verifyCheckBtn) {
+        verifyCheckBtn.addEventListener('click', () => {
+            const phone = verifyPhoneInput?.value || '';
+            const code = verifyCodeInput?.value || '';
+            const result = verifyVipCodeAuthenticity(phone, code);
+            
+            if (verifyResultText) {
+                verifyResultText.classList.remove('hidden', 'bg-emerald-900', 'text-emerald-200', 'bg-red-900', 'text-red-200');
+                if (result.valid) {
+                    verifyResultText.classList.add('bg-emerald-900', 'text-emerald-200');
+                    verifyResultText.textContent = result.message;
+                } else {
+                    verifyResultText.classList.add('bg-red-900', 'text-red-200');
+                    verifyResultText.textContent = result.message;
+                }
+            }
+        });
+    }
+}
+
 export function init() {
     setupNavigation();
     setupLanguageToggle();
@@ -931,6 +1368,7 @@ export function init() {
     setupGoldCalculator();
     setupPledgeReleaseCalculator();
     setupDoorstepAndReferral();
+    setupVipOffer();
 }
 
 // Auto-run if DOM ready
