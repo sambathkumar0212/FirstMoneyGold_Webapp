@@ -1,0 +1,1 @@
+// Transitioned to index.js for Vanilla JS implementation
