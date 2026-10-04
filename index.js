@@ -1,22 +1,34 @@
 /**
- * FIRST MONEY GOLD (FMG) - Main JS
+ * FIRST MONEY GOLD (FMG) - Comprehensive Web App Logic
  */
 
-const navbar = document.getElementById('navbar');
-const menuToggle = document.getElementById('menu-toggle');
-const mobileMenu = document.getElementById('mobile-menu');
-const menuIcon = document.getElementById('menu-icon');
-const closeIcon = document.getElementById('close-icon');
-const faqSearch = document.getElementById('faq-search');
-const faqEmpty = document.getElementById('faq-empty');
+let currentLang = 'en';
+let calcMode = 'loan';
+let currentPurity = 22;
+let currentRate = 13675;
 
 function init() {
-    setupEventListeners();
+    setupNavigation();
+    setupLanguageToggle();
+    setupLeadCaptureForm();
     setupFAQAccordion();
     setupGoldCalculator();
 }
 
-function setupEventListeners() {
+/**
+ * Setup navigation effects and mobile drawer
+ */
+function setupNavigation() {
+    const navbar = document.getElementById('navbar');
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIcon = document.getElementById('menu-icon');
+    const closeIcon = document.getElementById('close-icon');
+
+    // Dynamic Copyright Year
+    const yearSpan = document.getElementById('current-year');
+    if (yearSpan) yearSpan.textContent = new Date().getFullYear();
+
     // Navbar Scroll Effect
     window.addEventListener('scroll', () => {
         if (!navbar) return;
@@ -48,6 +60,8 @@ function setupEventListeners() {
     });
 
     // FAQ Search Logic
+    const faqSearch = document.getElementById('faq-search');
+    const faqEmpty = document.getElementById('faq-empty');
     if (faqSearch) {
         faqSearch.addEventListener('input', (e) => {
             const term = e.target.value.toLowerCase().trim();
@@ -74,6 +88,75 @@ function setupEventListeners() {
 }
 
 /**
+ * Setup English / Tamil Bilingual Language Switcher
+ */
+function setupLanguageToggle() {
+    const langToggleBtn = document.getElementById('lang-toggle-btn');
+    const currentLangText = document.getElementById('current-lang-text');
+
+    function setLanguage(lang) {
+        currentLang = lang;
+        document.querySelectorAll('[data-en]').forEach(el => {
+            const text = (lang === 'ta') ? el.getAttribute('data-ta') : el.getAttribute('data-en');
+            if (text) el.innerHTML = text;
+        });
+        if (currentLangText) {
+            currentLangText.textContent = (lang === 'ta') ? 'English' : 'தமிழ்';
+        }
+    }
+
+    if (langToggleBtn) {
+        langToggleBtn.addEventListener('click', () => {
+            setLanguage(currentLang === 'en' ? 'ta' : 'en');
+        });
+    }
+}
+
+/**
+ * Setup Lead Capture & Callback Form Handlers
+ */
+function setupLeadCaptureForm() {
+    const leadForm = document.getElementById('lead-capture-form');
+    const leadFeedback = document.getElementById('form-feedback');
+    const leadWhatsappBtn = document.getElementById('lead-whatsapp-btn');
+
+    if (leadForm) {
+        leadForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('lead-name')?.value.trim() || 'Customer';
+            const phone = document.getElementById('lead-phone')?.value.trim() || '';
+            const city = document.getElementById('lead-city')?.value || 'Chennai';
+            const weight = document.getElementById('lead-weight')?.value.trim() || 'Not specified';
+            const service = document.getElementById('lead-service')?.value || 'Gold Loan';
+
+            if (leadFeedback) {
+                leadFeedback.classList.remove('hidden');
+            }
+
+            const msg = `Hi First Money Gold, I requested a callback on your website:\n- Name: ${name}\n- Phone: +91 ${phone}\n- City/Branch: ${city}\n- Gold Weight: ${weight}\n- Service: ${service}`;
+            const waUrl = `https://wa.me/916380630242?text=${encodeURIComponent(msg)}`;
+            
+            setTimeout(() => {
+                window.open(waUrl, '_blank');
+            }, 800);
+        });
+    }
+
+    if (leadWhatsappBtn) {
+        leadWhatsappBtn.addEventListener('click', () => {
+            const name = document.getElementById('lead-name')?.value.trim() || 'Valued Customer';
+            const phone = document.getElementById('lead-phone')?.value.trim() || '';
+            const city = document.getElementById('lead-city')?.value || 'Chennai';
+            const weight = document.getElementById('lead-weight')?.value.trim() || 'Not specified';
+            const service = document.getElementById('lead-service')?.value || 'Gold Loan';
+
+            const msg = `Hi First Money Gold, I would like to inquire about:\n- Name: ${name}\n- Phone: ${phone ? '+91 ' + phone : 'Direct Inquiry'}\n- City/Branch: ${city}\n- Gold Weight: ${weight}\n- Service: ${service}`;
+            window.open(`https://wa.me/916380630242?text=${encodeURIComponent(msg)}`, '_blank');
+        });
+    }
+}
+
+/**
  * Setup Accordion Logic for FAQ items
  */
 function setupFAQAccordion() {
@@ -83,7 +166,6 @@ function setupFAQAccordion() {
             if (!content) return;
             const isOpen = content.style.maxHeight && content.style.maxHeight !== '0px';
             
-            // Close all
             document.querySelectorAll('.faq-content').forEach(c => {
                 c.style.maxHeight = '0px';
                 c.style.opacity = '0';
@@ -96,7 +178,6 @@ function setupFAQAccordion() {
                 }
             });
 
-            // Open clicked if it was closed
             if (!isOpen) {
                 content.style.maxHeight = '500px';
                 content.style.opacity = '1';
@@ -113,10 +194,6 @@ function setupFAQAccordion() {
  * Gold Loan & Cash Calculator Engine
  */
 function setupGoldCalculator() {
-    let calcMode = 'loan';
-    let currentPurity = 22;
-    let currentRate = 13675;
-
     const modeLoanBtn = document.getElementById('calc-mode-loan');
     const modeSellBtn = document.getElementById('calc-mode-sell');
     const purityBtns = document.querySelectorAll('.purity-btn');
@@ -156,16 +233,16 @@ function setupGoldCalculator() {
             calcMode = 'loan';
             modeLoanBtn.className = 'calc-mode-btn py-3 px-4 rounded-xl text-xs md:text-sm font-black transition-all bg-fmg-red text-white shadow-md';
             modeSellBtn.className = 'calc-mode-btn py-3 px-4 rounded-xl text-xs md:text-sm font-black transition-all bg-transparent text-slate-600 hover:text-black';
-            if (resultTitle) resultTitle.innerText = 'Instant Gold Loan Estimate';
-            if (outputLabel) outputLabel.innerText = 'Max Loan Cash In Hand';
+            if (resultTitle) resultTitle.innerText = (currentLang === 'ta') ? 'உடனடி தங்கக் கடன் மதிப்பீடு' : 'Instant Gold Loan Estimate';
+            if (outputLabel) outputLabel.innerText = (currentLang === 'ta') ? 'கையில் கிடைக்கும் கடன் தொகை' : 'Max Loan Cash In Hand';
             if (calcLtvBadge) {
-                calcLtvBadge.innerText = 'Up to 85% - 90% Market LTV';
+                calcLtvBadge.innerText = (currentLang === 'ta') ? 'சந்தை மதிப்பில் 85% - 90% வரை' : 'Up to 85% - 90% Market LTV';
                 calcLtvBadge.className = 'inline-block mt-2 text-[11px] font-bold text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full';
             }
             if (calcInterestRow) calcInterestRow.style.display = 'flex';
             if (calcWhatsappBtn) {
                 const btnText = calcWhatsappBtn.querySelector('span');
-                if (btnText) btnText.innerText = 'GET THIS LOAN ON WHATSAPP';
+                if (btnText) btnText.innerText = (currentLang === 'ta') ? 'இந்தக் கடனை வாட்ஸ்அப்பில் பெற' : 'GET THIS LOAN ON WHATSAPP';
             }
             calculateValues();
         });
@@ -174,16 +251,16 @@ function setupGoldCalculator() {
             calcMode = 'sell';
             modeSellBtn.className = 'calc-mode-btn py-3 px-4 rounded-xl text-xs md:text-sm font-black transition-all bg-fmg-red text-white shadow-md';
             modeLoanBtn.className = 'calc-mode-btn py-3 px-4 rounded-xl text-xs md:text-sm font-black transition-all bg-transparent text-slate-600 hover:text-black';
-            if (resultTitle) resultTitle.innerText = 'Instant Old Gold Sell Estimate';
-            if (outputLabel) outputLabel.innerText = 'Direct Cash Payout (98% Valuation)';
+            if (resultTitle) resultTitle.innerText = (currentLang === 'ta') ? 'பழைய நகை நேரடி விற்பனை மதிப்பீடு' : 'Instant Old Gold Sell Estimate';
+            if (outputLabel) outputLabel.innerText = (currentLang === 'ta') ? 'நேரடி ரொக்கப் பட்டுவாடா' : 'Direct Cash Payout (98% Valuation)';
             if (calcLtvBadge) {
-                calcLtvBadge.innerText = 'Top Market Rate Payout';
+                calcLtvBadge.innerText = (currentLang === 'ta') ? 'உயர்ந்த சந்தை விலை' : 'Top Market Rate Payout';
                 calcLtvBadge.className = 'inline-block mt-2 text-[11px] font-bold text-amber-400 bg-amber-500/10 px-3 py-1 rounded-full';
             }
             if (calcInterestRow) calcInterestRow.style.display = 'none';
             if (calcWhatsappBtn) {
                 const btnText = calcWhatsappBtn.querySelector('span');
-                if (btnText) btnText.innerText = 'SELL GOLD & GET INSTANT CASH';
+                if (btnText) btnText.innerText = (currentLang === 'ta') ? 'பழைய நகையை விற்று உடனடி பணம் பெற' : 'SELL GOLD & GET INSTANT CASH';
             }
             calculateValues();
         });
@@ -199,7 +276,7 @@ function setupGoldCalculator() {
             btn.classList.remove('border-slate-200');
             
             currentPurity = parseInt(btn.getAttribute('data-purity')) || 22;
-            currentRate = parseFloat(btn.getAttribute('data-rate')) || 6400;
+            currentRate = parseFloat(btn.getAttribute('data-rate')) || 13675;
             if (rateBadge) rateBadge.innerText = `Today: ₹${currentRate.toLocaleString('en-IN')} / gram`;
             calculateValues();
         });
