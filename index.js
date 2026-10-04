@@ -115,7 +115,7 @@ function setupFAQAccordion() {
 function setupGoldCalculator() {
     let calcMode = 'loan';
     let currentPurity = 22;
-    let currentRate = 6400;
+    let currentRate = 13675;
 
     const modeLoanBtn = document.getElementById('calc-mode-loan');
     const modeSellBtn = document.getElementById('calc-mode-sell');
