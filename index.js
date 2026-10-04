@@ -399,6 +399,9 @@ function setupLanguageToggle() {
         if (currentLangText) {
             currentLangText.textContent = (lang === 'ta') ? 'English' : 'தமிழ்';
         }
+        if (typeof setCalculatorMode === 'function') {
+            setCalculatorMode(calcMode);
+        }
     }
 
     if (langToggleBtn) {
