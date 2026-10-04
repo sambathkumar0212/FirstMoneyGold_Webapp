@@ -113,21 +113,78 @@ function setupLanguageToggle() {
 }
 
 /**
+ * Universal Phone Sanitizer: extracts clean 10-digit number even if +91, 91, 0, or spaces are provided
+ */
+export function cleanPhoneNumber(raw) {
+    if (!raw) return '';
+    let digits = String(raw).replace(/\D/g, '');
+    if (digits.length === 14 && digits.startsWith('0091')) {
+        digits = digits.slice(4);
+    } else if (digits.length === 12 && digits.startsWith('91')) {
+        digits = digits.slice(2);
+    } else if (digits.length === 11 && digits.startsWith('0')) {
+        digits = digits.slice(1);
+    } else if (digits.length > 10) {
+        if (digits.startsWith('91')) {
+            digits = digits.slice(2);
+        } else if (digits.startsWith('0')) {
+            digits = digits.slice(1);
+        }
+        if (digits.length > 10) {
+            digits = digits.slice(-10);
+        }
+    }
+    return digits;
+}
+
+/**
  * Setup Lead Capture & Callback Form Handlers
  */
 function setupLeadCaptureForm() {
     const leadForm = document.getElementById('lead-capture-form');
     const leadFeedback = document.getElementById('form-feedback');
     const leadWhatsappBtn = document.getElementById('lead-whatsapp-btn');
+    const phoneInput = document.getElementById('lead-phone');
+
+    if (phoneInput) {
+        // Real-time sanitization when user types, pastes, or leaves the input
+        phoneInput.addEventListener('input', () => {
+            const raw = phoneInput.value;
+            if (/[^\d]/.test(raw) || raw.length > 10 || (raw.startsWith('0') && raw.length > 1) || (raw.startsWith('91') && raw.length > 10)) {
+                phoneInput.value = cleanPhoneNumber(raw);
+            }
+        });
+
+        phoneInput.addEventListener('paste', () => {
+            setTimeout(() => {
+                phoneInput.value = cleanPhoneNumber(phoneInput.value);
+            }, 0);
+        });
+
+        phoneInput.addEventListener('blur', () => {
+            phoneInput.value = cleanPhoneNumber(phoneInput.value);
+        });
+    }
 
     if (leadForm) {
         leadForm.addEventListener('submit', (e) => {
             e.preventDefault();
             const name = document.getElementById('lead-name')?.value.trim() || 'Customer';
-            const phone = document.getElementById('lead-phone')?.value.trim() || '';
+            const rawPhone = document.getElementById('lead-phone')?.value || '';
+            const phone = cleanPhoneNumber(rawPhone);
             const city = document.getElementById('lead-city')?.value || 'Chennai';
             const weight = document.getElementById('lead-weight')?.value.trim() || 'Not specified';
             const service = document.getElementById('lead-service')?.value || 'Gold Loan';
+
+            if (phone.length < 10) {
+                alert(currentLang === 'ta' ? 'தயவுசெய்து சரியான 10 இலக்க மொபைல் எண்ணை உள்ளிடவும்.' : 'Please enter a valid 10-digit mobile number.');
+                document.getElementById('lead-phone')?.focus();
+                return;
+            }
+
+            if (phoneInput) {
+                phoneInput.value = phone;
+            }
 
             if (leadFeedback) {
                 leadFeedback.classList.remove('hidden');
@@ -145,10 +202,15 @@ function setupLeadCaptureForm() {
     if (leadWhatsappBtn) {
         leadWhatsappBtn.addEventListener('click', () => {
             const name = document.getElementById('lead-name')?.value.trim() || 'Valued Customer';
-            const phone = document.getElementById('lead-phone')?.value.trim() || '';
+            const rawPhone = document.getElementById('lead-phone')?.value || '';
+            const phone = cleanPhoneNumber(rawPhone);
             const city = document.getElementById('lead-city')?.value || 'Chennai';
             const weight = document.getElementById('lead-weight')?.value.trim() || 'Not specified';
             const service = document.getElementById('lead-service')?.value || 'Gold Loan';
+
+            if (phone && phoneInput) {
+                phoneInput.value = phone;
+            }
 
             const msg = `Hi First Money Gold, I would like to inquire about:\n- Name: ${name}\n- Phone: ${phone ? '+91 ' + phone : 'Direct Inquiry'}\n- City/Branch: ${city}\n- Gold Weight: ${weight}\n- Service: ${service}`;
             window.open(`https://wa.me/916380630242?text=${encodeURIComponent(msg)}`, '_blank');
