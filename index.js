@@ -59,7 +59,7 @@ export function generateWhatsAppMessage(category, extra = {}) {
     const rate = extra.rate || currentRate || 13675;
     const marketVal = Math.round(weight * rate);
     const loanEstimate = Math.round(marketVal * 0.85);
-    const sellEstimate = Math.round(marketVal * 0.98);
+    const sellEstimate = Math.round(marketVal * 1.00);
     const monthlyInterest = Math.round(loanEstimate * 0.0099);
     const pavanText = getPavanDescription(weight);
 
@@ -108,29 +108,29 @@ export function generateWhatsAppMessage(category, extra = {}) {
             if (isTamil) {
                 msg = `🌟 *FIRST MONEY GOLD - பழைய நகை நேரடி விற்பனை* 🌟\n` +
                       `━━━━━━━━━━━━━━━━━━━━\n` +
-                      `• *சேவைத் தேர்வு:* 🏷️ பழைய நகை நேரடி விற்பனை (Instant Cash)\n` +
+                      `• *சேவைத் தேர்வு:* 🏷️ பழைய நகை நேரடி விற்பனை (100% Instant Cash)\n` +
                       `• *தங்கத்தின் எடை:* ${weight} கிராம் (${pavanText})\n` +
                       `• *காரட் (Purity):* ${purityLabel}\n` +
-                      `• *மதிப்பிடப்பட்ட உடனடி ரொக்கம்:* ₹${sellEstimate.toLocaleString('en-IN')} (98% சந்தை மதிப்பு)\n` +
+                      `• *மதிப்பிடப்பட்ட உடனடி ரொக்கம்:* ₹${sellEstimate.toLocaleString('en-IN')} (தூய்மைக்கேற்ப 100% முழு சந்தை மதிப்பு • 0% கழிவு)\n` +
                       `• *பரிசோதனை முறை:* ஜெர்மன் XRF சேதமில்லா சோதனை\n` +
                       `• *விருப்பமான கிளை:* ${selectedCity}\n` +
                       (leadName ? `• *வாடிக்கையாளர் பெயர்:* ${leadName}\n` : '') +
                       (leadPhone ? `• *மொபைல் எண்:* +91 ${leadPhone}\n` : '') +
                       `━━━━━━━━━━━━━━━━━━━━\n` +
-                      `வணக்கம் First Money Gold, எனது பழைய தங்க நகைகளை விற்று உடனடி ரொக்கம் பெற விரும்புகிறேன். அடுத்த கட்டத்தை பகிரவும்.`;
+                      `வணக்கம் First Money Gold, எனது பழைய தங்க நகைகளை விற்று தூய்மைக்கேற்ப 100% முழு சந்தை பணத்தைப் பெற விரும்புகிறேன். அடுத்த கட்டத்தை பகிரவும்.`;
             } else {
                 msg = `🌟 *FIRST MONEY GOLD - Sell Old Gold for Cash* 🌟\n` +
                       `━━━━━━━━━━━━━━━━━━━━\n` +
-                      `• *Selected Category:* 🏷️ Sell Old Gold for Instant Cash\n` +
+                      `• *Selected Category:* 🏷️ Sell Old Gold for Instant Cash (100% Payout)\n` +
                       `• *Gold Weight:* ${weight}g (${pavanText})\n` +
                       `• *Purity:* ${purityLabel}\n` +
-                      `• *Estimated Direct Cash:* ₹${sellEstimate.toLocaleString('en-IN')} (98% Valuation)\n` +
+                      `• *Estimated Direct Cash:* ₹${sellEstimate.toLocaleString('en-IN')} (100% Full Market Rate by Purity • 0% Wastage)\n` +
                       `• *Testing Method:* German XRF Non-Destructive Scan\n` +
                       `• *Preferred Branch:* ${selectedCity}\n` +
                       (leadName ? `• *Customer Name:* ${leadName}\n` : '') +
                       (leadPhone ? `• *Mobile Number:* +91 ${leadPhone}\n` : '') +
                       `━━━━━━━━━━━━━━━━━━━━\n` +
-                      `Hello First Money Gold, I want to sell my old gold ornaments for instant cash/UPI payout. Please assist me.`;
+                      `Hello First Money Gold, I want to sell my old gold ornaments for 100% full market value based on purity with 0% wastage. Please assist me.`;
             }
             break;
         }
@@ -251,14 +251,14 @@ export function generateWhatsAppMessage(category, extra = {}) {
 
         case 'pledge_profit': {
             const pWeight = extra.weight || 24;
-            const pGross = extra.gross || Math.round(pWeight * currentRate * 0.98);
+            const pGross = extra.gross || Math.round(pWeight * currentRate * 1.00);
             const pDebt = extra.debt || 150000;
             const pProfit = extra.profit || Math.max(0, pGross - pDebt);
             if (isTamil) {
                 msg = `🌟 *FIRST MONEY GOLD - அடகு நகை மீட்பு & கூடுதல் ரொக்க லாபம்* 🌟\n` +
                       `━━━━━━━━━━━━━━━━━━━━\n` +
                       `• *தங்கத்தின் எடை:* ${pWeight} கிராம் (${getPavanDescription(pWeight)})\n` +
-                      `• *இன்றைய 98% நேரலை மதிப்பு:* ₹${Number(pGross).toLocaleString('en-IN')}\n` +
+                      `• *இன்றைய 100% நேரலை மதிப்பு:* ₹${Number(pGross).toLocaleString('en-IN')}\n` +
                       `• *வங்கியில் உள்ள கடன் நிலுவை:* -₹${Number(pDebt).toLocaleString('en-IN')}\n` +
                       `• *🔥 கையில் கிடைக்கும் கூடுதல் பணம்:* ₹${Number(pProfit).toLocaleString('en-IN')}\n` +
                       `• *விருப்பமான கிளை:* ${selectedCity}\n` +
@@ -268,7 +268,7 @@ export function generateWhatsAppMessage(category, extra = {}) {
                 msg = `🌟 *FIRST MONEY GOLD - Pledged Gold Net Profit Clearance* 🌟\n` +
                       `━━━━━━━━━━━━━━━━━━━━\n` +
                       `• *Gold Weight:* ${pWeight}g (${getPavanDescription(pWeight)})\n` +
-                      `• *Current 98% Market Value:* ₹${Number(pGross).toLocaleString('en-IN')}\n` +
+                      `• *Current 100% Market Value:* ₹${Number(pGross).toLocaleString('en-IN')}\n` +
                       `• *Pending Bank Debt to Clear:* -₹${Number(pDebt).toLocaleString('en-IN')}\n` +
                       `• *🔥 Estimated Net Cash Surplus In Hand:* ₹${Number(pProfit).toLocaleString('en-IN')}\n` +
                       `• *Preferred Branch:* ${selectedCity}\n` +
@@ -308,7 +308,7 @@ export function generateWhatsAppMessage(category, extra = {}) {
             if (isTamil) {
                 msg = `🌟 *FIRST MONEY GOLD - பரிந்துரை & வெகுமதி திட்டம் (Refer & Earn)* 🌟\n` +
                       `━━━━━━━━━━━━━━━━━━━━\n` +
-                      `வணக்கம் நண்பரே! பழைய தங்க நகைகளை விற்று 98% உடனடி ரொக்கப் பணம் பெற அல்லது குறைந்த 0.99% வட்டியில் தங்கக் கடன் பெற First Money Gold (FMG) நிறுவனத்தை பரிந்துரைக்கிறேன்.\n` +
+                      `வணக்கம் நண்பரே! பழைய தங்க நகைகளை விற்று 100% உடனடி ரொக்கப் பணம் பெற அல்லது குறைந்த 0.99% வட்டியில் தங்கக் கடன் பெற First Money Gold (FMG) நிறுவனத்தை பரிந்துரைக்கிறேன்.\n` +
                       `• 15 நிமிடங்களில் நேரடி ரொக்கம் / UPI\n` +
                       `• ஜெர்மன் XRF சேதமில்லா சோதனை\n` +
                       `• சென்னை, தேனி, திண்டுக்கல், வத்தலகுண்டு, நிலக்கோட்டை கிளைகள்\n` +
@@ -316,7 +316,7 @@ export function generateWhatsAppMessage(category, extra = {}) {
             } else {
                 msg = `🌟 *FIRST MONEY GOLD - High Cash Value Gold Buyers & Loans* 🌟\n` +
                       `━━━━━━━━━━━━━━━━━━━━\n` +
-                      `Hello! If you want to sell old gold for top 98% market valuation or get lowest interest gold loans (from 0.99%), I recommend First Money Gold (FMG).\n` +
+                      `Hello! If you want to sell old gold for top 100% market valuation or get lowest interest gold loans (from 0.99%), I recommend First Money Gold (FMG).\n` +
                       `• 15-Minute Instant Cash / UPI Disbursal\n` +
                       `• German XRF Non-Destructive Scanning (0% damage)\n` +
                       `• Branches in Chennai, Theni, Dindigul, Batlagundu, and Nilakottai\n` +
@@ -366,11 +366,11 @@ export function showWhatsAppModal() {
     if (!waModal) return;
     const weight = parseFloat(document.getElementById('gold-weight-input')?.value || 16);
     const marketVal = Math.round(weight * currentRate);
-    const sellVal = Math.round(marketVal * 0.98);
+    const sellVal = Math.round(marketVal * 1.00);
     const loanVal = Math.round(marketVal * 0.85);
     const modalSellBadge = document.getElementById('modal-sell-badge');
     if (modalSellBadge) {
-        modalSellBadge.textContent = `₹${sellVal.toLocaleString('en-IN')} (98% Cash)`;
+        modalSellBadge.textContent = `₹${sellVal.toLocaleString('en-IN')} (100% Cash)`;
     }
     const modalLoanBadge = document.getElementById('modal-loan-badge');
     if (modalLoanBadge) {
@@ -686,9 +686,9 @@ export function setCalculatorMode(mode) {
         if (modeSellBtn) modeSellBtn.className = 'calc-mode-btn py-3 px-4 rounded-xl text-xs md:text-sm font-black transition-all bg-fmg-red text-white shadow-md';
         if (modeLoanBtn) modeLoanBtn.className = 'calc-mode-btn py-3 px-4 rounded-xl text-xs md:text-sm font-black transition-all bg-transparent text-slate-600 hover:text-black';
         if (resultTitle) resultTitle.innerText = (currentLang === 'ta') ? 'பழைய நகை நேரடி விற்பனை மதிப்பீடு' : 'Instant Old Gold Sell Estimate';
-        if (outputLabel) outputLabel.innerText = (currentLang === 'ta') ? 'நேரடி ரொக்கப் பட்டுவாடா' : 'Direct Cash Payout (98% Valuation)';
+        if (outputLabel) outputLabel.innerText = (currentLang === 'ta') ? 'கையில் கிடைக்கும் 100% நேரடி ரொக்கம்' : 'Direct Cash Payout (100% Market Value)';
         if (calcLtvBadge) {
-            calcLtvBadge.innerText = (currentLang === 'ta') ? 'உயர்ந்த சந்தை விலை' : 'Top Market Rate Payout (98%)';
+            calcLtvBadge.innerText = (currentLang === 'ta') ? '🔥 100% முழு சந்தை ரொக்கம் (0% கழிவு)' : '🔥 100% Full Market Value (0% Wastage)';
             calcLtvBadge.className = 'inline-block mt-2 text-[11px] font-bold text-amber-400 bg-amber-500/10 px-3 py-1 rounded-full';
         }
         if (calcInterestRow) calcInterestRow.style.display = 'none';
@@ -714,7 +714,7 @@ export function setCalculatorMode(mode) {
 
     const weight = parseFloat(weightInput?.value) || 0;
     const marketVal = weight * currentRate;
-    const finalVal = (mode === 'sell') ? Math.round(marketVal * 0.98) : Math.round(marketVal * 0.85);
+    const finalVal = (mode === 'sell') ? Math.round(marketVal * 1.00) : Math.round(marketVal * 0.85);
     const monthlyInterest = Math.round(finalVal * 0.0099);
     if (calcLoanAmount) calcLoanAmount.innerText = finalVal.toLocaleString('en-IN');
     if (calcMarketVal) calcMarketVal.innerText = '₹' + Math.round(marketVal).toLocaleString('en-IN');
@@ -836,7 +836,7 @@ export function setupPledgeReleaseCalculator() {
     function calculatePledgeProfit() {
         const weight = parseFloat(weightInput?.value) || 24;
         const debt = parseFloat(debtInput?.value) || 0;
-        const grossValue = Math.round(weight * currentRate * 0.98);
+        const grossValue = Math.round(weight * currentRate * 1.00);
         const netProfit = Math.max(0, grossValue - debt);
 
         if (grossValEl) grossValEl.textContent = '₹' + grossValue.toLocaleString('en-IN');
@@ -874,7 +874,7 @@ export function setupPledgeReleaseCalculator() {
             e.preventDefault();
             const weight = parseFloat(weightInput?.value) || 24;
             const debt = parseFloat(debtInput?.value) || 0;
-            const gross = Math.round(weight * currentRate * 0.98);
+            const gross = Math.round(weight * currentRate * 1.00);
             const profit = Math.max(0, gross - debt);
             openWhatsApp('pledge_profit', { weight, gross, debt, profit });
         });
