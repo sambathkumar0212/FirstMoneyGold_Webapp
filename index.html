@@ -87,6 +87,7 @@
 
                 <div class="hidden lg:flex items-center gap-8">
                     <a href="#home" class="text-[11px] font-black uppercase tracking-widest text-slate-500 hover:text-fmg-red transition-all">Home</a>
+                    <a href="#calculator" class="text-[11px] font-black uppercase tracking-widest text-slate-500 hover:text-fmg-red transition-all">Calculator</a>
                     <a href="#services" class="text-[11px] font-black uppercase tracking-widest text-slate-500 hover:text-fmg-red transition-all">Services</a>
                     <a href="#franchise" class="text-[11px] font-black uppercase tracking-widest text-slate-500 hover:text-fmg-red transition-all">Partner</a>
                     <a href="#faq" class="text-[11px] font-black uppercase tracking-widest text-slate-500 hover:text-fmg-red transition-all">FAQ</a>
@@ -111,6 +112,7 @@
 
         <div id="mobile-menu" class="lg:hidden absolute top-20 left-4 right-4 bg-white rounded-2xl shadow-2xl border border-slate-100 overflow-hidden flex flex-col p-6 space-y-4">
             <a href="#home" class="mobile-link text-sm fmg-impact text-slate-800 hover:text-fmg-red py-2 border-b border-slate-50">Home</a>
+            <a href="#calculator" class="mobile-link text-sm fmg-impact text-slate-800 hover:text-fmg-red py-2 border-b border-slate-50">Calculator</a>
             <a href="#services" class="mobile-link text-sm fmg-impact text-slate-800 hover:text-fmg-red py-2 border-b border-slate-50">Services</a>
             <a href="#franchise" class="mobile-link text-sm fmg-impact text-slate-800 hover:text-fmg-red py-2 border-b border-slate-50">Partner</a>
             <a href="#faq" class="mobile-link text-sm fmg-impact text-slate-800 hover:text-fmg-red py-2 border-b border-slate-50">FAQ</a>
@@ -118,8 +120,38 @@
         </div>
     </header>
 
+    <!-- Live Gold Rate Ticker Bar -->
+    <div class="bg-slate-950 text-white border-b border-slate-800 pt-24 pb-3 px-4 relative z-40 shadow-inner">
+        <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3 text-xs">
+            <div class="flex items-center gap-2 font-black uppercase tracking-wider text-fmg-yellow">
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse inline-block"></span>
+                <span>Today's Live Gold Rates (Tamil Nadu)</span>
+            </div>
+            <div class="flex items-center flex-wrap gap-4 md:gap-8 font-semibold text-slate-200">
+                <div class="flex items-center gap-1.5">
+                    <span class="text-slate-400 font-normal">24K Pure:</span>
+                    <span class="font-bold text-white">₹6,980/g</span>
+                    <span class="text-[10px] text-fmg-yellow bg-white/10 px-1.5 py-0.5 rounded font-mono">₹55,840/Pavan</span>
+                </div>
+                <div class="flex items-center gap-1.5">
+                    <span class="text-slate-400 font-normal">22K 916:</span>
+                    <span class="font-bold text-amber-400">₹6,400/g</span>
+                    <span class="text-[10px] text-amber-300 bg-amber-400/20 px-1.5 py-0.5 rounded font-mono">₹51,200/Pavan</span>
+                </div>
+                <div class="flex items-center gap-1.5 hidden sm:flex">
+                    <span class="text-slate-400 font-normal">18K:</span>
+                    <span class="font-bold text-white">₹5,240/g</span>
+                </div>
+                <div class="flex items-center gap-1.5 hidden md:flex">
+                    <span class="text-slate-400 font-normal">Silver:</span>
+                    <span class="font-bold text-slate-300">₹94.50/g</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Hero Section -->
-    <section id="home" class="relative min-h-[90vh] pt-32 pb-16 px-4 md:px-6 flex flex-col justify-center items-center text-center bg-white overflow-hidden scroll-mt-header">
+    <section id="home" class="relative min-h-[85vh] pt-12 pb-16 px-4 md:px-6 flex flex-col justify-center items-center text-center bg-white overflow-hidden scroll-mt-header">
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full opacity-[0.03] pointer-events-none select-none overflow-hidden">
             <h1 class="text-[40vw] md:text-[25vw] fmg-impact text-fmg-red whitespace-nowrap">FMG</h1>
         </div>
@@ -153,8 +185,169 @@
             </div>
 
             <div class="flex flex-wrap justify-center gap-4 pt-2">
-                <a href="#services" class="px-8 py-4 bg-black text-white rounded-xl text-xs fmg-impact shadow-2xl hover:bg-fmg-red transition-all">Explore Services</a>
+                <a href="#calculator" class="px-8 py-4 bg-fmg-red text-white rounded-xl text-xs fmg-impact shadow-2xl hover:scale-105 transition-all flex items-center gap-2">
+                    <span>⚡ CALCULATE GOLD LOAN</span>
+                </a>
+                <a href="#services" class="px-8 py-4 bg-black text-white rounded-xl text-xs fmg-impact shadow-2xl hover:bg-slate-800 transition-all">Explore Services</a>
                 <a href="https://wa.me/916380630242" target="_blank" class="px-8 py-4 bg-[#25D366] text-white rounded-xl text-xs fmg-impact hover:bg-[#20ba5a] transition-all shadow-xl shadow-green-500/10">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Gold Loan Calculator Section -->
+    <section id="calculator" class="py-20 md:py-28 bg-gradient-to-b from-slate-50 via-white to-slate-50 scroll-mt-header relative overflow-hidden border-t border-slate-100">
+        <div class="absolute top-0 right-0 w-96 h-96 bg-fmg-yellow/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-fmg-red/5 rounded-full blur-3xl pointer-events-none"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 md:px-6 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-14">
+                <span class="text-[11px] font-black uppercase tracking-[0.3em] text-fmg-red bg-fmg-red/10 px-4 py-1.5 rounded-full border border-fmg-red/20 inline-block mb-3">Instant Valuation Engine</span>
+                <h2 class="text-3xl sm:text-5xl md:text-6xl fmg-impact text-black leading-tight">Gold Loan & Cash <span class="text-fmg-red">Calculator.</span></h2>
+                <p class="text-slate-600 font-semibold text-sm md:text-base mt-4">Calculate instant cash loan eligibility and estimated payout for your gold ornaments in seconds.</p>
+            </div>
+
+            <div class="grid lg:grid-cols-12 gap-8 items-stretch">
+                <!-- Calculator Controls (Left Column) -->
+                <div class="lg:col-span-7 bg-white rounded-3xl p-6 sm:p-10 border border-slate-200/80 shadow-xl space-y-8 flex flex-col justify-between">
+                    
+                    <!-- 1. Calculation Mode (Loan vs Sell) -->
+                    <div>
+                        <label class="block text-xs font-black uppercase tracking-wider text-slate-500 mb-3">Select Service Type</label>
+                        <div class="grid grid-cols-2 gap-3 p-1.5 bg-slate-100 rounded-2xl">
+                            <button type="button" id="calc-mode-loan" class="calc-mode-btn py-3 px-4 rounded-xl text-xs md:text-sm font-black transition-all bg-fmg-red text-white shadow-md">
+                                💰 Gold Loan (Pledge)
+                            </button>
+                            <button type="button" id="calc-mode-sell" class="calc-mode-btn py-3 px-4 rounded-xl text-xs md:text-sm font-black transition-all bg-transparent text-slate-600 hover:text-black">
+                                🏷️ Sell Old Gold
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- 2. Purity Selection -->
+                    <div>
+                        <div class="flex justify-between items-center mb-3">
+                            <label class="text-xs font-black uppercase tracking-wider text-slate-500">Select Gold Purity</label>
+                            <span id="rate-badge" class="text-xs font-bold text-fmg-red bg-fmg-red/10 px-2.5 py-1 rounded-full">Today: ₹6,400 / gram</span>
+                        </div>
+                        <div class="grid grid-cols-3 gap-3">
+                            <button type="button" class="purity-btn active p-3 sm:p-4 rounded-2xl border-2 border-fmg-red bg-red-50/50 text-left transition-all" data-purity="22" data-rate="6400">
+                                <div class="text-sm sm:text-base font-black text-black leading-none">22 Karat</div>
+                                <div class="text-[10px] sm:text-xs text-slate-500 font-semibold mt-1">91.6% Hallmark</div>
+                            </button>
+                            <button type="button" class="purity-btn p-3 sm:p-4 rounded-2xl border-2 border-slate-200 hover:border-slate-300 text-left transition-all" data-purity="24" data-rate="6980">
+                                <div class="text-sm sm:text-base font-black text-black leading-none">24 Karat</div>
+                                <div class="text-[10px] sm:text-xs text-slate-500 font-semibold mt-1">99.9% Pure</div>
+                            </button>
+                            <button type="button" class="purity-btn p-3 sm:p-4 rounded-2xl border-2 border-slate-200 hover:border-slate-300 text-left transition-all" data-purity="18" data-rate="5240">
+                                <div class="text-sm sm:text-base font-black text-black leading-none">18 Karat</div>
+                                <div class="text-[10px] sm:text-xs text-slate-500 font-semibold mt-1">75.0% Jewelry</div>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- 3. Weight Slider & Input -->
+                    <div>
+                        <div class="flex justify-between items-center mb-3">
+                            <label for="gold-weight-input" class="text-xs font-black uppercase tracking-wider text-slate-500">Gold Weight</label>
+                            <div class="flex items-center gap-2">
+                                <input type="number" id="gold-weight-input" min="0.5" max="500" step="0.5" value="16" class="w-24 text-right px-3 py-1.5 font-black text-lg border-2 border-slate-200 rounded-xl focus:border-fmg-red outline-none">
+                                <span class="font-bold text-slate-600 text-sm">Grams</span>
+                            </div>
+                        </div>
+
+                        <!-- Slider -->
+                        <input type="range" id="gold-weight-slider" min="1" max="100" step="0.5" value="16" class="w-full h-2.5 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-fmg-red">
+                        
+                        <div class="flex justify-between text-[10px] font-bold text-slate-400 mt-1">
+                            <span>1 Gram</span>
+                            <span>50 Grams</span>
+                            <span>100+ Grams</span>
+                        </div>
+
+                        <!-- Quick Presets -->
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <span class="text-[11px] font-bold text-slate-400 self-center mr-1">Quick Select:</span>
+                            <button type="button" class="weight-chip px-3 py-1 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold rounded-lg transition-all" data-weight="8">8g (1 Pavan)</button>
+                            <button type="button" class="weight-chip active px-3 py-1 bg-fmg-red text-white text-xs font-bold rounded-lg transition-all" data-weight="16">16g (2 Pavans)</button>
+                            <button type="button" class="weight-chip px-3 py-1 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold rounded-lg transition-all" data-weight="24">24g (3 Pavans)</button>
+                            <button type="button" class="weight-chip px-3 py-1 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold rounded-lg transition-all" data-weight="40">40g (5 Pavans)</button>
+                            <button type="button" class="weight-chip px-3 py-1 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold rounded-lg transition-all" data-weight="80">80g (10 Pavans)</button>
+                        </div>
+                    </div>
+
+                    <!-- Trust indicators -->
+                    <div class="pt-4 border-t border-slate-100 grid grid-cols-3 gap-2 text-center">
+                        <div class="p-2">
+                            <span class="block text-base">🔬</span>
+                            <span class="text-[10px] font-bold text-slate-500">German XRF Testing</span>
+                        </div>
+                        <div class="p-2">
+                            <span class="block text-base">⏱️</span>
+                            <span class="text-[10px] font-bold text-slate-500">15-Min Payout</span>
+                        </div>
+                        <div class="p-2">
+                            <span class="block text-base">🔒</span>
+                            <span class="text-[10px] font-bold text-slate-500">100% Vault Insured</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Calculation Result Card (Right Column) -->
+                <div class="lg:col-span-5 bg-gradient-to-br from-slate-950 via-slate-900 to-black text-white rounded-3xl p-6 sm:p-10 shadow-2xl flex flex-col justify-between border border-slate-800 relative overflow-hidden">
+                    <div class="absolute -top-16 -right-16 w-48 h-48 bg-fmg-red/20 rounded-full blur-2xl"></div>
+                    <div class="absolute -bottom-16 -left-16 w-48 h-48 bg-fmg-yellow/10 rounded-full blur-2xl"></div>
+
+                    <div class="relative z-10">
+                        <div class="flex items-center justify-between pb-6 border-b border-white/10">
+                            <div>
+                                <span class="text-[10px] font-black uppercase tracking-widest text-fmg-yellow">Valuation Summary</span>
+                                <h3 id="result-title" class="text-xl fmg-impact text-white mt-0.5">Instant Gold Loan Estimate</h3>
+                            </div>
+                            <span class="px-3 py-1 bg-white/10 text-emerald-400 text-xs font-bold rounded-full flex items-center gap-1">
+                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span> Live Rate
+                            </span>
+                        </div>
+
+                        <!-- Main Loan Amount Output -->
+                        <div class="my-8 text-center bg-white/5 p-6 rounded-2xl border border-white/10">
+                            <span id="output-label" class="block text-xs font-bold uppercase tracking-widest text-slate-400 mb-1">Max Loan Cash In Hand</span>
+                            <div class="flex items-center justify-center gap-1">
+                                <span class="text-2xl md:text-3xl font-bold text-fmg-yellow">₹</span>
+                                <span id="calc-loan-amount" class="text-4xl md:text-6xl fmg-impact text-white tracking-tight">87,040</span>
+                            </div>
+                            <span id="calc-ltv-badge" class="inline-block mt-2 text-[11px] font-bold text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full">
+                                Up to 85% - 90% Market LTV
+                            </span>
+                        </div>
+
+                        <!-- Breakdown stats -->
+                        <div class="space-y-3 text-xs sm:text-sm font-semibold mb-8">
+                            <div class="flex justify-between py-2 border-b border-white/10 text-slate-300">
+                                <span>Total Market Value:</span>
+                                <span id="calc-market-val" class="font-bold text-white">₹1,02,400</span>
+                            </div>
+                            <div id="calc-interest-row" class="flex justify-between py-2 border-b border-white/10 text-slate-300">
+                                <span>Monthly Interest (From 0.99%):</span>
+                                <span id="calc-monthly-interest" class="font-bold text-fmg-yellow">₹861 / month</span>
+                            </div>
+                            <div class="flex justify-between py-2 text-slate-300">
+                                <span>Payout Options:</span>
+                                <span class="font-bold text-emerald-400">Instant Cash / UPI / IMPS</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Action buttons -->
+                    <div class="relative z-10 space-y-3 pt-4">
+                        <a id="calc-whatsapp-btn" href="https://wa.me/916380630242" target="_blank" class="w-full py-4 px-6 bg-[#25D366] hover:bg-[#20ba5a] text-white rounded-xl fmg-impact text-xs sm:text-sm text-center flex items-center justify-center gap-2 shadow-lg shadow-green-500/20 transition-all hover:scale-[1.02]">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 1 1-7.6-11.7c.6 0 1.1.1 1.7.3l4.6-1.5-1.5 4.6c.2.6.3 1.2.3 1.8Z"/><path d="M8.5 9.5a2.5 2.5 0 0 0 0 5c1 0 1.5-.5 2-1s.5-1 2-1 1 .5 2 1.5"/></svg>
+                            <span>GET THIS LOAN ON WHATSAPP</span>
+                        </a>
+                        <a href="tel:+916380630242" class="w-full py-3.5 px-6 bg-white/10 hover:bg-white/20 text-white rounded-xl font-bold text-xs text-center flex items-center justify-center gap-2 transition-all">
+                            <span>📞 Call Loan Officer: +91 63806 30242</span>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -585,6 +778,147 @@
                     faqEmpty.style.display = (found === 0) ? 'block' : 'none';
                 });
             }
+
+            // Gold Loan & Cash Calculator Logic
+            let calcMode = 'loan';
+            let currentPurity = 22;
+            let currentRate = 6400;
+            let currentWeight = 16;
+
+            const modeLoanBtn = document.getElementById('calc-mode-loan');
+            const modeSellBtn = document.getElementById('calc-mode-sell');
+            const purityBtns = document.querySelectorAll('.purity-btn');
+            const weightInput = document.getElementById('gold-weight-input');
+            const weightSlider = document.getElementById('gold-weight-slider');
+            const weightChips = document.querySelectorAll('.weight-chip');
+            const rateBadge = document.getElementById('rate-badge');
+
+            const resultTitle = document.getElementById('result-title');
+            const outputLabel = document.getElementById('output-label');
+            const calcLoanAmount = document.getElementById('calc-loan-amount');
+            const calcLtvBadge = document.getElementById('calc-ltv-badge');
+            const calcMarketVal = document.getElementById('calc-market-val');
+            const calcInterestRow = document.getElementById('calc-interest-row');
+            const calcMonthlyInterest = document.getElementById('calc-monthly-interest');
+            const calcWhatsappBtn = document.getElementById('calc-whatsapp-btn');
+
+            function calculateValues() {
+                const weight = parseFloat(weightInput?.value) || 0;
+                const marketVal = weight * currentRate;
+                const loanVal = (calcMode === 'loan') ? Math.round(marketVal * 0.85) : Math.round(marketVal * 0.98);
+                const monthlyInterest = Math.round(loanVal * 0.0099);
+
+                if (calcLoanAmount) calcLoanAmount.innerText = loanVal.toLocaleString('en-IN');
+                if (calcMarketVal) calcMarketVal.innerText = '₹' + Math.round(marketVal).toLocaleString('en-IN');
+                if (calcMonthlyInterest) calcMonthlyInterest.innerText = '₹' + monthlyInterest.toLocaleString('en-IN') + ' / month';
+
+                if (calcWhatsappBtn) {
+                    const modeText = (calcMode === 'loan') ? 'Gold Loan' : 'Sell Old Gold';
+                    const msg = `Hi First Money Gold, I checked your online calculator and I want to apply for a ${modeText} for ${weight}g of ${currentPurity} Karat Gold (Estimated Value: ₹${loanVal.toLocaleString('en-IN')}). Please assist me.`;
+                    calcWhatsappBtn.href = `https://wa.me/916380630242?text=${encodeURIComponent(msg)}`;
+                }
+            }
+
+            // Mode Toggle
+            if (modeLoanBtn && modeSellBtn) {
+                modeLoanBtn.addEventListener('click', () => {
+                    calcMode = 'loan';
+                    modeLoanBtn.className = 'calc-mode-btn py-3 px-4 rounded-xl text-xs md:text-sm font-black transition-all bg-fmg-red text-white shadow-md';
+                    modeSellBtn.className = 'calc-mode-btn py-3 px-4 rounded-xl text-xs md:text-sm font-black transition-all bg-transparent text-slate-600 hover:text-black';
+                    if (resultTitle) resultTitle.innerText = 'Instant Gold Loan Estimate';
+                    if (outputLabel) outputLabel.innerText = 'Max Loan Cash In Hand';
+                    if (calcLtvBadge) {
+                        calcLtvBadge.innerText = 'Up to 85% - 90% Market LTV';
+                        calcLtvBadge.className = 'inline-block mt-2 text-[11px] font-bold text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full';
+                    }
+                    if (calcInterestRow) calcInterestRow.style.display = 'flex';
+                    if (calcWhatsappBtn) calcWhatsappBtn.querySelector('span').innerText = 'GET THIS LOAN ON WHATSAPP';
+                    calculateValues();
+                });
+
+                modeSellBtn.addEventListener('click', () => {
+                    calcMode = 'sell';
+                    modeSellBtn.className = 'calc-mode-btn py-3 px-4 rounded-xl text-xs md:text-sm font-black transition-all bg-fmg-red text-white shadow-md';
+                    modeLoanBtn.className = 'calc-mode-btn py-3 px-4 rounded-xl text-xs md:text-sm font-black transition-all bg-transparent text-slate-600 hover:text-black';
+                    if (resultTitle) resultTitle.innerText = 'Instant Old Gold Sell Estimate';
+                    if (outputLabel) outputLabel.innerText = 'Direct Cash Payout (98% Valuation)';
+                    if (calcLtvBadge) {
+                        calcLtvBadge.innerText = 'Top Market Rate Payout';
+                        calcLtvBadge.className = 'inline-block mt-2 text-[11px] font-bold text-amber-400 bg-amber-500/10 px-3 py-1 rounded-full';
+                    }
+                    if (calcInterestRow) calcInterestRow.style.display = 'none';
+                    if (calcWhatsappBtn) calcWhatsappBtn.querySelector('span').innerText = 'SELL GOLD & GET INSTANT CASH';
+                    calculateValues();
+                });
+            }
+
+            // Purity Buttons
+            purityBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    purityBtns.forEach(b => {
+                        b.classList.remove('border-fmg-red', 'bg-red-50/50');
+                        b.classList.add('border-slate-200');
+                    });
+                    btn.classList.add('border-fmg-red', 'bg-red-50/50');
+                    btn.classList.remove('border-slate-200');
+                    
+                    currentPurity = parseInt(btn.getAttribute('data-purity')) || 22;
+                    currentRate = parseFloat(btn.getAttribute('data-rate')) || 6400;
+                    if (rateBadge) rateBadge.innerText = `Today: ₹${currentRate.toLocaleString('en-IN')} / gram`;
+                    calculateValues();
+                });
+            });
+
+            // Weight Slider & Input Sync
+            if (weightInput && weightSlider) {
+                weightInput.addEventListener('input', (e) => {
+                    const val = parseFloat(e.target.value) || 0;
+                    weightSlider.value = Math.min(val, 100);
+                    weightChips.forEach(chip => {
+                        if (parseFloat(chip.getAttribute('data-weight')) === val) {
+                            chip.classList.add('bg-fmg-red', 'text-white');
+                            chip.classList.remove('bg-slate-100', 'text-slate-700');
+                        } else {
+                            chip.classList.remove('bg-fmg-red', 'text-white');
+                            chip.classList.add('bg-slate-100', 'text-slate-700');
+                        }
+                    });
+                    calculateValues();
+                });
+
+                weightSlider.addEventListener('input', (e) => {
+                    weightInput.value = e.target.value;
+                    weightChips.forEach(chip => {
+                        if (parseFloat(chip.getAttribute('data-weight')) === parseFloat(e.target.value)) {
+                            chip.classList.add('bg-fmg-red', 'text-white');
+                            chip.classList.remove('bg-slate-100', 'text-slate-700');
+                        } else {
+                            chip.classList.remove('bg-fmg-red', 'text-white');
+                            chip.classList.add('bg-slate-100', 'text-slate-700');
+                        }
+                    });
+                    calculateValues();
+                });
+            }
+
+            // Quick weight chips
+            weightChips.forEach(chip => {
+                chip.addEventListener('click', () => {
+                    const val = parseFloat(chip.getAttribute('data-weight')) || 8;
+                    if (weightInput) weightInput.value = val;
+                    if (weightSlider) weightSlider.value = Math.min(val, 100);
+                    weightChips.forEach(c => {
+                        c.classList.remove('bg-fmg-red', 'text-white');
+                        c.classList.add('bg-slate-100', 'text-slate-700');
+                    });
+                    chip.classList.add('bg-fmg-red', 'text-white');
+                    chip.classList.remove('bg-slate-100', 'text-slate-700');
+                    calculateValues();
+                });
+            });
+
+            // Initial calculation
+            calculateValues();
         });
     </script>
 
