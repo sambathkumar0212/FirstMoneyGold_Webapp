@@ -1189,14 +1189,6 @@ export function setupVipOffer() {
     const copyShareBtn = document.getElementById('vip-copy-share-btn');
     const claimWaBtn = document.getElementById('vip-claim-wa-btn');
 
-    // Admin / Staff Verifier Elements
-    const toggleVerifierBtn = document.getElementById('toggle-verifier-btn');
-    const verifierBox = document.getElementById('verifier-box');
-    const verifyCheckBtn = document.getElementById('verify-check-btn');
-    const verifyPhoneInput = document.getElementById('verify-phone-input');
-    const verifyCodeInput = document.getElementById('verify-code-input');
-    const verifyResultText = document.getElementById('verify-result-text');
-
     if (phoneInput) {
         phoneInput.addEventListener('input', () => {
             phoneInput.value = cleanPhoneNumber(phoneInput.value);
@@ -1331,14 +1323,166 @@ export function setupVipOffer() {
         });
     }
 
-    // Toggle Staff Verifier
+    // Admin / Staff Verifier Elements (Inline & Secret Modal)
+    const toggleVerifierBtn = document.getElementById('toggle-verifier-btn');
+    const verifierBox = document.getElementById('verifier-box');
+    const verifyCheckBtn = document.getElementById('verify-check-btn');
+    const verifyPhoneInput = document.getElementById('verify-phone-input');
+    const verifyCodeInput = document.getElementById('verify-code-input');
+    const verifyResultText = document.getElementById('verify-result-text');
+
+    // Secret Trigger: Clicking "Core Services" unlocks and opens Staff / Admin Verification Modal
+    const coreServicesHeading = document.getElementById('core-services-heading');
+    const staffModal = document.getElementById('staff-verifier-modal');
+    const closeStaffModalBtn = document.getElementById('close-staff-modal-btn');
+    const staffModalPhone = document.getElementById('staff-modal-phone');
+    const staffModalCode = document.getElementById('staff-modal-code');
+    const staffModalVerifyBtn = document.getElementById('staff-modal-verify-btn');
+    const staffModalResult = document.getElementById('staff-modal-result');
+    const staffModalTodayDate = document.getElementById('staff-modal-today-date');
+    const staffModalTestSampleBtn = document.getElementById('staff-modal-test-sample-btn');
+    const staffAdminVerifierContainer = document.getElementById('staff-admin-verifier-container');
+
+    function openStaffVerifierModal() {
+        if (!staffModal) return;
+        staffModal.classList.remove('hidden');
+        staffModal.classList.add('flex');
+        
+        // Also unhide inline section in VIP offer
+        if (staffAdminVerifierContainer) {
+            staffAdminVerifierContainer.classList.remove('hidden');
+        }
+
+        if (staffModalTodayDate) {
+            const now = new Date();
+            staffModalTodayDate.textContent = `${getTodayDateString()} (${now.toLocaleDateString('en-IN', { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' })})`;
+        }
+
+        if (staffModalPhone) {
+            staffModalPhone.focus();
+        }
+    }
+
+    function closeStaffVerifierModal() {
+        if (!staffModal) return;
+        staffModal.classList.add('hidden');
+        staffModal.classList.remove('flex');
+    }
+
+    if (coreServicesHeading) {
+        coreServicesHeading.addEventListener('click', (e) => {
+            e.preventDefault();
+            openStaffVerifierModal();
+        });
+    }
+
+    if (closeStaffModalBtn) {
+        closeStaffModalBtn.addEventListener('click', closeStaffVerifierModal);
+    }
+
+    if (staffModal) {
+        staffModal.addEventListener('click', (e) => {
+            if (e.target === staffModal) {
+                closeStaffVerifierModal();
+            }
+        });
+    }
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && staffModal && !staffModal.classList.contains('hidden')) {
+            closeStaffVerifierModal();
+        }
+    });
+
+    if (staffModalPhone) {
+        staffModalPhone.addEventListener('input', () => {
+            staffModalPhone.value = cleanPhoneNumber(staffModalPhone.value);
+        });
+    }
+
+    if (staffModalCode) {
+        staffModalCode.addEventListener('input', () => {
+            staffModalCode.value = staffModalCode.value.toUpperCase();
+        });
+    }
+
+    if (staffModalVerifyBtn) {
+        staffModalVerifyBtn.addEventListener('click', () => {
+            const phone = staffModalPhone?.value || '';
+            const code = staffModalCode?.value || '';
+            const cleanPhone = cleanPhoneNumber(phone);
+            
+            if (cleanPhone.length < 10) {
+                if (staffModalResult) {
+                    staffModalResult.classList.remove('hidden', 'bg-emerald-950/80', 'border-emerald-500', 'text-emerald-200', 'bg-red-950/80', 'border-red-500', 'text-red-200');
+                    staffModalResult.classList.add('bg-red-950/80', 'border-red-500', 'text-red-200');
+                    staffModalResult.innerHTML = `⚠️ <strong>Incomplete Phone Number:</strong> Please enter a valid 10-digit mobile number.`;
+                }
+                return;
+            }
+
+            if (!code.trim()) {
+                if (staffModalResult) {
+                    staffModalResult.classList.remove('hidden', 'bg-emerald-950/80', 'border-emerald-500', 'text-emerald-200', 'bg-red-950/80', 'border-red-500', 'text-red-200');
+                    staffModalResult.classList.add('bg-red-950/80', 'border-red-500', 'text-red-200');
+                    staffModalResult.innerHTML = `⚠️ <strong>Missing Passcode:</strong> Please enter the customer's VIP passcode.`;
+                }
+                return;
+            }
+
+            const result = verifyVipCodeAuthenticity(cleanPhone, code);
+            if (staffModalResult) {
+                staffModalResult.classList.remove('hidden', 'bg-emerald-950/80', 'border-emerald-500', 'text-emerald-200', 'bg-red-950/80', 'border-red-500', 'text-red-200');
+                if (result.valid) {
+                    staffModalResult.classList.add('bg-emerald-950/80', 'border-emerald-500', 'text-emerald-200');
+                    staffModalResult.innerHTML = `
+                        <div class="flex items-start gap-2.5">
+                            <span class="text-xl">✅</span>
+                            <div>
+                                <h6 class="font-black text-sm text-emerald-300 uppercase">AUTHENTIC VIP PASSCODE VERIFIED!</h6>
+                                <p class="mt-1 text-xs text-emerald-100">Mobile: <strong class="font-mono text-white">+91 ${result.phone}</strong> is confirmed for <strong class="text-amber-300">100% Rate VIP Gold Loan</strong> today (${result.date}).</p>
+                                <div class="mt-2 text-[11px] bg-emerald-900/60 p-2 rounded-lg border border-emerald-600/40 text-emerald-200">
+                                    ✓ Checksum Match: Passcode <strong>${result.code}</strong> is authentic.<br>
+                                    ✓ Action: Disburse gold loan at 100% full market value rate.
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                } else {
+                    staffModalResult.classList.add('bg-red-950/80', 'border-red-500', 'text-red-200');
+                    staffModalResult.innerHTML = `
+                        <div class="flex items-start gap-2.5">
+                            <span class="text-xl">❌</span>
+                            <div>
+                                <h6 class="font-black text-sm text-red-300 uppercase">PASSCODE MISMATCH / INVALID!</h6>
+                                <p class="mt-1 text-xs text-red-100">${result.message}</p>
+                                <p class="mt-1 text-[11px] text-red-300">The passcode does not match Mobile +91 ${cleanPhone} or was created on a different date.</p>
+                            </div>
+                        </div>
+                    `;
+                }
+            }
+        });
+    }
+
+    if (staffModalTestSampleBtn) {
+        staffModalTestSampleBtn.addEventListener('click', () => {
+            const samplePhone = '9876543210';
+            const sampleCode = generateVipCodeFromPhone(samplePhone, getTodayDateString());
+            if (staffModalPhone) staffModalPhone.value = samplePhone;
+            if (staffModalCode) staffModalCode.value = sampleCode;
+            if (staffModalVerifyBtn) staffModalVerifyBtn.click();
+        });
+    }
+
+    // Toggle Staff Verifier in VIP offer section
     if (toggleVerifierBtn && verifierBox) {
         toggleVerifierBtn.addEventListener('click', () => {
             verifierBox.classList.toggle('hidden');
         });
     }
 
-    // Run Authenticity Check
+    // Run Authenticity Check (inline box)
     if (verifyCheckBtn) {
         verifyCheckBtn.addEventListener('click', () => {
             const phone = verifyPhoneInput?.value || '';
@@ -1346,13 +1490,13 @@ export function setupVipOffer() {
             const result = verifyVipCodeAuthenticity(phone, code);
             
             if (verifyResultText) {
-                verifyResultText.classList.remove('hidden', 'bg-emerald-900', 'text-emerald-200', 'bg-red-900', 'text-red-200');
+                verifyResultText.classList.remove('hidden', 'bg-emerald-900/90', 'border-emerald-500', 'text-emerald-200', 'bg-red-900/90', 'border-red-500', 'text-red-200');
                 if (result.valid) {
-                    verifyResultText.classList.add('bg-emerald-900', 'text-emerald-200');
-                    verifyResultText.textContent = result.message;
+                    verifyResultText.classList.add('bg-emerald-900/90', 'border-emerald-500', 'text-emerald-200');
+                    verifyResultText.innerHTML = `✅ <strong>AUTHENTIC MATCH:</strong> +91 ${result.phone} verified for 100% Rate VIP Gold Loan on ${result.date}.`;
                 } else {
-                    verifyResultText.classList.add('bg-red-900', 'text-red-200');
-                    verifyResultText.textContent = result.message;
+                    verifyResultText.classList.add('bg-red-900/90', 'border-red-500', 'text-red-200');
+                    verifyResultText.innerHTML = `❌ <strong>INVALID MATCH:</strong> ${result.message}`;
                 }
             }
         });
