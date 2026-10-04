@@ -5,11 +5,14 @@ import { execSync } from 'child_process';
 console.log('1. Building production bundle...');
 execSync('npm.cmd run build', { stdio: 'inherit' });
 
-// Copy .htaccess to dist
-if (fs.existsSync('.htaccess')) {
-  fs.copyFileSync('.htaccess', path.join('dist', '.htaccess'));
-  console.log('2. Copied .htaccess to dist folder.');
-}
+// Copy .htaccess, robots.txt, sitemap.xml to dist
+['.htaccess', 'public/robots.txt', 'public/sitemap.xml'].forEach(file => {
+  if (fs.existsSync(file)) {
+    const dest = path.join('dist', path.basename(file));
+    fs.copyFileSync(file, dest);
+    console.log(`2. Copied ${file} to ${dest}`);
+  }
+});
 
 console.log('3. Creating cpanel_deploy.zip archive...');
 try {

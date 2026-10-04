@@ -249,6 +249,82 @@ export function generateWhatsAppMessage(category, extra = {}) {
             break;
         }
 
+        case 'pledge_profit': {
+            const pWeight = extra.weight || 24;
+            const pGross = extra.gross || Math.round(pWeight * currentRate * 0.98);
+            const pDebt = extra.debt || 150000;
+            const pProfit = extra.profit || Math.max(0, pGross - pDebt);
+            if (isTamil) {
+                msg = `🌟 *FIRST MONEY GOLD - அடகு நகை மீட்பு & கூடுதல் ரொக்க லாபம்* 🌟\n` +
+                      `━━━━━━━━━━━━━━━━━━━━\n` +
+                      `• *தங்கத்தின் எடை:* ${pWeight} கிராம் (${getPavanDescription(pWeight)})\n` +
+                      `• *இன்றைய 98% நேரலை மதிப்பு:* ₹${Number(pGross).toLocaleString('en-IN')}\n` +
+                      `• *வங்கியில் உள்ள கடன் நிலுவை:* -₹${Number(pDebt).toLocaleString('en-IN')}\n` +
+                      `• *🔥 கையில் கிடைக்கும் கூடுதல் பணம்:* ₹${Number(pProfit).toLocaleString('en-IN')}\n` +
+                      `• *விருப்பமான கிளை:* ${selectedCity}\n` +
+                      `━━━━━━━━━━━━━━━━━━━━\n` +
+                      `வணக்கம் First Money Gold, பிற வங்கியில் உள்ள எனது அடகு நகையை உங்கள் பணத்தில் மீட்டு, மீதமுள்ள ₹${Number(pProfit).toLocaleString('en-IN')} கூடுதல் ரொக்கத்தைப் பெற விரும்புகிறேன். வழிகாட்டவும்.`;
+            } else {
+                msg = `🌟 *FIRST MONEY GOLD - Pledged Gold Net Profit Clearance* 🌟\n` +
+                      `━━━━━━━━━━━━━━━━━━━━\n` +
+                      `• *Gold Weight:* ${pWeight}g (${getPavanDescription(pWeight)})\n` +
+                      `• *Current 98% Market Value:* ₹${Number(pGross).toLocaleString('en-IN')}\n` +
+                      `• *Pending Bank Debt to Clear:* -₹${Number(pDebt).toLocaleString('en-IN')}\n` +
+                      `• *🔥 Estimated Net Cash Surplus In Hand:* ₹${Number(pProfit).toLocaleString('en-IN')}\n` +
+                      `• *Preferred Branch:* ${selectedCity}\n` +
+                      `━━━━━━━━━━━━━━━━━━━━\n` +
+                      `Hello First Money Gold, I calculated my pledge release profit. I want FMG to clear my pending loan of ₹${Number(pDebt).toLocaleString('en-IN')} and hand me the surplus cash of ₹${Number(pProfit).toLocaleString('en-IN')}. Please guide me.`;
+            }
+            break;
+        }
+
+        case 'doorstep': {
+            const dWeight = extra.weight || '5+ Pavans (40g+)';
+            if (isTamil) {
+                msg = `🌟 *FIRST MONEY GOLD - விஐபி நேரடி இல்ல வருகை முன்பதிவு (Doorstep)* 🌟\n` +
+                      `━━━━━━━━━━━━━━━━━━━━\n` +
+                      `• *சேவை:* 🚗 இல்லத்திற்கே வந்து ஜெர்மன் XRF மூலம் நகைப் பரிசோதனை & உடனடி பணம்\n` +
+                      `• *தோராயமான எடை:* ${dWeight}\n` +
+                      `• *இடம் / நகரம்:* ${selectedCity}\n` +
+                      (leadName ? `• *பெயர்:* ${leadName}\n` : '') +
+                      (leadPhone ? `• *மொபைல் எண்:* +91 ${leadPhone}\n` : '') +
+                      `━━━━━━━━━━━━━━━━━━━━\n` +
+                      `வணக்கம் First Money Gold, எனது இல்லத்திற்கே உங்கள் அதிகாரியை அனுப்பி ஜெர்மன் XRF மூலம் நகைகளை பரிசோதித்து உடனடி பணம் வழங்க முன்பதிவு செய்ய விரும்புகிறேன்.`;
+            } else {
+                msg = `🌟 *FIRST MONEY GOLD - VIP Doorstep Gold Appraisal Booking* 🌟\n` +
+                      `━━━━━━━━━━━━━━━━━━━━\n` +
+                      `• *Service:* 🚗 Home Visit German XRF Gold Testing & Spot Bank Disbursal\n` +
+                      `• *Approx. Gold Weight:* ${dWeight}\n` +
+                      `• *Location / City:* ${selectedCity}\n` +
+                      (leadName ? `• *Customer Name:* ${leadName}\n` : '') +
+                      (leadPhone ? `• *Mobile Number:* +91 ${leadPhone}\n` : '') +
+                      `━━━━━━━━━━━━━━━━━━━━\n` +
+                      `Hello First Money Gold, I would like to schedule a VIP Doorstep Gold Evaluation at my home/office. Please confirm the available time slots and executive arrival.`;
+            }
+            break;
+        }
+
+        case 'referral': {
+            if (isTamil) {
+                msg = `🌟 *FIRST MONEY GOLD - பரிந்துரை & வெகுமதி திட்டம் (Refer & Earn)* 🌟\n` +
+                      `━━━━━━━━━━━━━━━━━━━━\n` +
+                      `வணக்கம் நண்பரே! பழைய தங்க நகைகளை விற்று 98% உடனடி ரொக்கப் பணம் பெற அல்லது குறைந்த 0.99% வட்டியில் தங்கக் கடன் பெற First Money Gold (FMG) நிறுவனத்தை பரிந்துரைக்கிறேன்.\n` +
+                      `• 15 நிமிடங்களில் நேரடி ரொக்கம் / UPI\n` +
+                      `• ஜெர்மன் XRF சேதமில்லா சோதனை\n` +
+                      `• சென்னை, தேனி, திண்டுக்கல், வத்தலகுண்டு, நிலக்கோட்டை கிளைகள்\n` +
+                      `இன்றைய நேரலை விலையை அறிந்து கொள்ள வாட்ஸ்அப்பில் தொடர்பு கொள்ளவும்: https://wa.me/${FMG_WHATSAPP_NUMBER}`;
+            } else {
+                msg = `🌟 *FIRST MONEY GOLD - High Cash Value Gold Buyers & Loans* 🌟\n` +
+                      `━━━━━━━━━━━━━━━━━━━━\n` +
+                      `Hello! If you want to sell old gold for top 98% market valuation or get lowest interest gold loans (from 0.99%), I recommend First Money Gold (FMG).\n` +
+                      `• 15-Minute Instant Cash / UPI Disbursal\n` +
+                      `• German XRF Non-Destructive Scanning (0% damage)\n` +
+                      `• Branches in Chennai, Theni, Dindigul, Batlagundu, and Nilakottai\n` +
+                      `Check today's live rate and get instant quote here: https://wa.me/${FMG_WHATSAPP_NUMBER}`;
+            }
+            break;
+        }
+
         default: {
             if (isTamil) {
                 msg = `🌟 *FIRST MONEY GOLD - நேரடி வாடிக்கையாளர் உதவி* 🌟\n` +
@@ -745,6 +821,107 @@ function setupGoldCalculator() {
     calculateValues();
 }
 
+/**
+ * Pledged Gold Release Net Profit Calculator
+ */
+export function setupPledgeReleaseCalculator() {
+    const weightInput = document.getElementById('pledge-calc-weight');
+    const debtInput = document.getElementById('pledge-calc-debt');
+    const grossValEl = document.getElementById('pledge-calc-gross');
+    const debtValEl = document.getElementById('pledge-calc-debt-display');
+    const netProfitEl = document.getElementById('pledge-calc-net-profit');
+    const whatsappBtn = document.getElementById('pledge-calc-wa-btn');
+    const weightChips = document.querySelectorAll('.pledge-weight-chip');
+
+    function calculatePledgeProfit() {
+        const weight = parseFloat(weightInput?.value) || 24;
+        const debt = parseFloat(debtInput?.value) || 0;
+        const grossValue = Math.round(weight * currentRate * 0.98);
+        const netProfit = Math.max(0, grossValue - debt);
+
+        if (grossValEl) grossValEl.textContent = '₹' + grossValue.toLocaleString('en-IN');
+        if (debtValEl) debtValEl.textContent = '- ₹' + Math.round(debt).toLocaleString('en-IN');
+        if (netProfitEl) netProfitEl.textContent = '₹' + netProfit.toLocaleString('en-IN');
+        if (whatsappBtn) {
+            const btnSpan = whatsappBtn.querySelector('.pledge-wa-text');
+            if (btnSpan) {
+                btnSpan.textContent = (currentLang === 'ta') 
+                    ? `₹${netProfit.toLocaleString('en-IN')} கூடுதல் பணத்தை வாட்ஸ்அப்பில் பெற` 
+                    : `CLAIM ₹${netProfit.toLocaleString('en-IN')} SURPLUS CASH ON WHATSAPP`;
+            }
+        }
+    }
+
+    if (weightInput) weightInput.addEventListener('input', calculatePledgeProfit);
+    if (debtInput) debtInput.addEventListener('input', calculatePledgeProfit);
+
+    weightChips.forEach(chip => {
+        chip.addEventListener('click', () => {
+            const w = parseFloat(chip.getAttribute('data-weight')) || 24;
+            if (weightInput) weightInput.value = w;
+            weightChips.forEach(c => {
+                c.classList.remove('bg-fmg-red', 'text-white');
+                c.classList.add('bg-slate-100', 'text-slate-700');
+            });
+            chip.classList.add('bg-fmg-red', 'text-white');
+            chip.classList.remove('bg-slate-100', 'text-slate-700');
+            calculatePledgeProfit();
+        });
+    });
+
+    if (whatsappBtn) {
+        whatsappBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const weight = parseFloat(weightInput?.value) || 24;
+            const debt = parseFloat(debtInput?.value) || 0;
+            const gross = Math.round(weight * currentRate * 0.98);
+            const profit = Math.max(0, gross - debt);
+            openWhatsApp('pledge_profit', { weight, gross, debt, profit });
+        });
+    }
+
+    calculatePledgeProfit();
+}
+
+/**
+ * VIP Doorstep Service & Referral Cashback Program Handlers
+ */
+export function setupDoorstepAndReferral() {
+    const doorstepBtn = document.getElementById('doorstep-book-btn');
+    const referralShareBtn = document.getElementById('referral-share-btn');
+    const referralCopyBtn = document.getElementById('referral-copy-btn');
+
+    if (doorstepBtn) {
+        doorstepBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const weight = document.getElementById('doorstep-weight')?.value || '5+ Pavans (40g+)';
+            const city = document.getElementById('doorstep-city')?.value || 'Chennai';
+            openWhatsApp('doorstep', { weight, city });
+        });
+    }
+
+    if (referralShareBtn) {
+        referralShareBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            openWhatsApp('referral');
+        });
+    }
+
+    if (referralCopyBtn) {
+        referralCopyBtn.addEventListener('click', () => {
+            const text = generateWhatsAppMessage('referral');
+            navigator.clipboard.writeText(text).then(() => {
+                referralCopyBtn.textContent = (currentLang === 'ta') ? '✅ நகலெடுக்கப்பட்டது!' : '✅ Message Copied!';
+                setTimeout(() => {
+                    referralCopyBtn.textContent = (currentLang === 'ta') ? '📋 தகவலை நகலெடு' : '📋 Copy Share Message';
+                }, 2500);
+            }).catch(() => {
+                openWhatsApp('referral');
+            });
+        });
+    }
+}
+
 export function init() {
     setupNavigation();
     setupLanguageToggle();
@@ -752,6 +929,8 @@ export function init() {
     setupFAQAccordion();
     setupWhatsAppIntegrations();
     setupGoldCalculator();
+    setupPledgeReleaseCalculator();
+    setupDoorstepAndReferral();
 }
 
 // Auto-run if DOM ready
